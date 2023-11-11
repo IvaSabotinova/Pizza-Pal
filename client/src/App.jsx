@@ -6,19 +6,20 @@ import BookTable from "./components/BookTable";
 import Clients from "./components/Clients";
 import Footer from "./components/Footer";
 
-function App() {
-  return (
-    <>
-      <Header />
-      <Offer />
-      <Food />
-      <About />
-      <BookTable />
-      <Clients />
-      <Footer />
-    </>
 
-  )
+function App() {
+    return (
+        <>
+            <Header />
+            <Offer />
+            <Food />
+            <About />
+            <BookTable />
+            <Clients />
+            <Footer />
+        </>
+
+    )
 }
 
 export default App

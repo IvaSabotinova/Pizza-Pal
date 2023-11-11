@@ -1,5 +1,5 @@
-export default function Offer(){
-    return( <section className="offer_section layout_padding-bottom">
+export default function Offer() {
+  return (<section className="offer_section layout_padding-bottom">
     <div className="offer_container">
       <div className="container ">
         <div className="row">

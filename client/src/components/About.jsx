@@ -1,5 +1,5 @@
-export default function About(){
-    return( <section className="about_section layout_padding">
+export default function About() {
+  return (<section className="about_section layout_padding">
     <div className="container  ">
       <div className="row">
         <div className="col-md-6 ">

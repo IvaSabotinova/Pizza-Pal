@@ -1,35 +1,64 @@
+import Product from "./Product";
+import { useState, useEffect } from "react";
+import * as productService from '../services/productService';
+
+
 export default function Food() {
+    const [products, setProducts] = useState([]);
+    const [activeFilter, setActiveFilter] = useState('*');
+
+    useEffect(() => {
+        productService.getAll()
+            .then((res) => setProducts(res))
+            .catch((err) => console.log(err))
+    }, []);
+
+    const filterProducts = (type) => {
+        setActiveFilter(type);
+    }
+
+    const filteredProducts = activeFilter === '*' ? products : products.filter(x=>x.type === activeFilter);
+
     return (<section className="food_section layout_padding-bottom">
         <div className="container">
             <div className="heading_container heading_center">
                 <h2>Our Menu</h2>
             </div>
             <ul className="filters_menu">
-                <li className="active" data-filter="*">
-                    All
-                </li>
-                <li data-filter=".pizza">Pizzas</li>
-                <li data-filter=".starter">Starters</li>
-                <li data-filter=".chicken">Chicken</li>
-                <li data-filter=".sandwich">Sandwiches</li>
-                <li data-filter=".dessert">Desserts</li>
-                <li data-filter=".drink">Drinks</li>
+                <li className={activeFilter === '*' ? 'active': ''} onClick={()=> filterProducts('*')} data-filter="*"> All </li>
+                <li className={activeFilter === 'pizza' ? 'active' : ''} onClick={()=> filterProducts('pizza')} data-filter=".pizza">Pizzas</li>
+                <li className={activeFilter === 'starter' ? 'active': ''} onClick={()=> filterProducts('starter')} data-filter=".starter">Starters</li>
+                <li className={activeFilter==='dessert'? 'active': ''} onClick={()=> filterProducts('dessert')} data-filter=".dessert">Desserts</li>
+                <li className={activeFilter==='drink' ? 'active' : ''} onClick={()=> filterProducts('drink')} data-filter=".drink">Drinks</li>
             </ul>
             <div className="filters-content">
                 <div className="row grid">
-                    <div className="col-sm-6 col-lg-4 all pizza">
+                    {filteredProducts.map(prod => (<Product
+                        key={prod.id}
+                        {...prod}
+
+                    />))}
+
+                    {/*<div className="col-sm-6 col-lg-4 all pizza">
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/pizzas/pizza-margarita.png" alt="margarita" />
+                                    <img src="images/pizzas/margarita.png" alt="margarita" />
                                 </div>
                                 <div className="detail-box">
                                     <h5>Pizza Margarita</h5>
-                                    <p>
+                                     <p>
                                         Thin Italian Style dough stuffed with Philadelphia cream cheese, mozzarella, tomato sauce
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN14.20</h6>
+                                        <h6>BGN14.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -85,24 +114,32 @@ export default function Food() {
                                                 <g></g>
                                             </svg>
                                         </a>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-6 col-lg-4 all burger">
+                     <div className="col-sm-6 col-lg-4 all burger">
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/pizzas/pizza-pepperoni.png" alt="pepperoni" />
+                                    <img src="images/pizzas/pepperoni.png" alt="pepperoni" />
                                 </div>
                                 <div className="detail-box">
                                     <h5>Pepperoni Classic</h5>
-                                    <p>
+                                     <p>
                                         Hand-tossed dough with mozzarella stuffed crust, mozzarella, tomato sauce, extra pepperoni
-                                    </p>
+                                    </p> 
                                     <div className="options">
                                         <h6>BGN17.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -167,15 +204,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/pizzas/pizza-american.png" alt="american" />
+                                    <img src="images/pizzas/american-hot.png" alt="american" />
                                 </div>
                                 <div className="detail-box">
                                     <h5>American Hot</h5>
-                                    <p>
+                                     <p>
                                         Thin Italian Style dough with mozzarella stuffed crust, tomato sauce, mozzarella, pepperoni, spicy jalapeno peppers, onions
-                                    </p>
+                                    </p> 
                                     <div className="options">
                                         <h6>BGN16.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -240,15 +284,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/starters/cheesy-bread.png" alt="" />
+                                    <img src="images/pizzas/garden-classic.png" alt="" />
                                 </div>
                                 <div className="detail-box">
-                                    <h5>Cheesy Bread</h5>
-                                    <p>
+                                    <h5>Garden Classic</h5>
+                                     <p>
                                         Freshly baked, topped with mozzarella and the special Pizza Pal's seasoning, served with tomato dip
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN4.50</h6>
+                                        <h6>BGN14.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -313,15 +364,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/starters/mozzarella-sticks.png" alt="" />
+                                    <img src="images/pizzas/hawaiian.png" alt="" />
                                 </div>
                                 <div className="detail-box">
-                                    <h5>Mozzarella Sticks</h5>
-                                    <p>
+                                    <h5>Hawaiian Pizza</h5>
+                                     <p>
                                         Five crispy mozzarella sticks with Barbecue dip. Excellent start for a delicious meal. Do not miss!
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN7.50</h6>
+                                        <h6>BGN14.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -386,15 +444,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/chicken/chicken-kickers.jpg" alt="" />
+                                    <img src="images/pizzas/bbq-chicken.png" alt="" />
                                 </div>
                                 <div className="detail-box">
-                                    <h5>Chicken Kickers</h5>
-                                    <p>
+                                    <h5>BBQ Chicken Pizza</h5>
+                                     <p>
                                         Oven baked chicken nuggets in a spicy breadcrumb coating. Served with Barbecue dip
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN7.90</h6>
+                                        <h6>BGN16.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -459,15 +524,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/sandwiches/mediterraneo-sandwich.png" alt="" />
+                                    <img src="images/pizzas/carbonara.png" alt="" />
                                 </div>
                                 <div className="detail-box">
-                                    <h5>Mediterraneo Sandwich</h5>
-                                    <p>
+                                    <h5>Carbonara</h5>
+                                     <p>
                                         Ranch sauce, provolone, white feta cheese, fresh tomatoes, black olives, fresh green peppers.
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN6.50</h6>
+                                        <h6>BGN15.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -532,15 +604,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/desserts/brownie-bites.png" alt="" />
+                                    <img src="images/pizzas/italian-classic.png" alt="" />
                                 </div>
                                 <div className="detail-box">
-                                    <h5>Brownie Bites</h5>
-                                    <p>
+                                    <h5>Italian Classic</h5>
+                                     <p>
                                         Chocolate brownie with white chocolate chips. A perfect tip for completing your meal.
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN3.00</h6>
+                                        <h6>BGN15.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -605,15 +684,22 @@ export default function Food() {
                         <div className="box">
                             <div>
                                 <div className="img-box">
-                                    <img src="images/desserts/choco-pie.png" alt="" />
+                                    <img src="images/pizzas/extravaganza.png" alt="" />
                                 </div>
                                 <div className="detail-box">
-                                    <h5>Choco Pie with Nutella</h5>
-                                    <p>
+                                    <h5>Extravaganza</h5>
+                                     <p>
                                         Freshly oven baked puff pastry filled with Nutella spread and sprinkled with icing sugar.
-                                    </p>
+                                    </p> 
                                     <div className="options">
-                                        <h6>BGN5.50</h6>
+                                        <h6>BGN17.90</h6>
+                                        <button style={{
+                                            backgroundColor: '#ffbe33',
+                                            color: '#ffffff',
+                                            marginRight: '10px',
+                                            marginLeft: '120px',
+                                            borderRadius: '20px'
+                                        }}>Details</button>
                                         <a href="">
                                             <svg
                                                 version="1.1"
@@ -673,7 +759,7 @@ export default function Food() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="btn-box">
