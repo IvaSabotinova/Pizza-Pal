@@ -1,4 +1,5 @@
 export default function BookTable() {
+  
   return (<section className="book_section layout_padding">
     <div className="container">
       <div className="heading_container">

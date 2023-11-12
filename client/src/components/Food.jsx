@@ -5,6 +5,7 @@ import * as productService from '../services/productService';
 const initialVisibleState = 6;
 
 export default function Food() {
+    
     const [products, setProducts] = useState([]);
     const [activeFilter, setActiveFilter] = useState('*');
     const [visibleProducts, setVisibleProducts] = useState(initialVisibleState);

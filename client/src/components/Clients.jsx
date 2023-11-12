@@ -1,4 +1,5 @@
 export default function Clients() {
+    
     return (
         <section className="client_section layout_padding-bottom">
             <div className="container">
