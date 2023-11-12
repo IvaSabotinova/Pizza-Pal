@@ -20,9 +20,6 @@ const Product = ({
                         </div>
                         <div className="detail-box">
                             <h5>{name}</h5>
-                            {/* <p>
-                                        Thin Italian Style dough stuffed with Philadelphia cream cheese, mozzarella, tomato sauce
-                                    </p> */}
                             <div className="options">
                                 <h6>BGN{price[0].toFixed(2)}</h6>
                                 <button style={{
