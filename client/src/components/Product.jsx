@@ -7,11 +7,10 @@ const Product = ({
     imageUrl,
     price,
 
-
 }) => {
-
+     
     return (
-        <>
+        <>     
             <div className="col-sm-6 col-lg-4 all pizza">
                 <div className="box">
                     <div>
@@ -20,6 +19,7 @@ const Product = ({
                         </div>
                         <div className="detail-box">
                             <h5>{name}</h5>
+                            <p>{ingredients}</p>
                             <div className="options">
                                 <h6>BGN{price[0].toFixed(2)}</h6>
                                 <button style={{

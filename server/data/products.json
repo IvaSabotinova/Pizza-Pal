@@ -127,7 +127,7 @@
       "Medium - 6 slices",
       "Large - 8 slices",
       "Jumbo - 12 slices"
-    ],   
+    ],
     "imageUrl": "pizzas/italian-classic.png",
     "price": [
       13.90,
@@ -144,7 +144,7 @@
       "Medium - 6 slices",
       "Large - 8 slices",
       "Jumbo - 12 slices"
-    ],    
+    ],
     "imageUrl": "pizzas/extravaganza.png",
     "price": [
       15.90,
@@ -159,7 +159,7 @@
     "ingredients": "Freshly baked, topped with mozzarella and the special Domino's seasoning, served with tomato dip",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "starters/cheesy-bread.png",
     "price": [
       4.50
@@ -172,7 +172,7 @@
     "ingredients": "five crispy mozzarella sticks with BBQ dip",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "starters/mozzarella-sticks.png",
     "price": [
       7.50
@@ -185,7 +185,7 @@
     "ingredients": "Chocolate lava cake filled with melted warm chocolate",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "desserts/chocolate-souffle.png",
     "price": [
       5.90
@@ -198,7 +198,7 @@
     "ingredients": "Chocolate brownie with white chocolate chips",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "desserts/brownie-bites.png",
     "price": [
       3.90
@@ -211,7 +211,7 @@
     "ingredients": "Freshly oven baked puff pastry filled with Nutella spread and sprinkled with icing sugar",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "desserts/choco-pie.png",
     "price": [
       6.90
@@ -224,7 +224,7 @@
     "ingredients": "",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "drinks/coca-cola.png",
     "price": [
       2.60
@@ -237,7 +237,7 @@
     "ingredients": "",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "drinks/fuze-tea.png",
     "price": [
       2.50
@@ -250,7 +250,7 @@
     "ingredients": "",
     "size": [
       ""
-    ],   
+    ],
     "imageUrl": "drinks/bottled-water.jpg",
     "price": [
       2.50

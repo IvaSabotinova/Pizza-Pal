@@ -1,24 +1,21 @@
+import Home from "./components/Home";
 import Header from "./components/Header";
-import Offer from "./components/Offer";
-import Food from "./components/Food";
-import About from "./components/About";
-import BookTable from "./components/BookTable";
-import Clients from "./components/Clients";
+import Menu from "./components/Menu";
 import Footer from "./components/Footer";
-
+import { Routes, Route } from "react-router-dom"
+import About from "./components/About";
 
 function App() {
     return (
-        <>
-            <Header />
-            <Offer />
-            <Food />
-            <About />
-            <BookTable />
-            <Clients />
+        <>    
+        < Header /> 
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="menu" element={<Menu />} />
+                <Route path="about" element={<About />} />
+            </Routes>
             <Footer />
         </>
-
     )
 }
 
