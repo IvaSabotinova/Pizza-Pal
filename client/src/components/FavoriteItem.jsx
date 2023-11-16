@@ -23,7 +23,8 @@ const FavoriteItem = ({
                             color: '#ffffff',
                             marginRight: '10px',
                             marginLeft: '120px',
-                            borderRadius: '20px'
+                            borderRadius: '20px', 
+                            padding: '5px',
                         }}>Details</button>
                         <a href="">
                             <svg

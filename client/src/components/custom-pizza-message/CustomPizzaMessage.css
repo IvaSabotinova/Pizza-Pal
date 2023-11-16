@@ -1,0 +1,26 @@
+.custom-pizza_section {
+    background: #222831;
+    color: #ffffff;
+  }
+
+  .row {
+    display: flex;  
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  .custom-pizza_section .img-box img {
+    width: 100%;
+    max-width: 445px;
+    position: relative;
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .custom-pizza_section .detail-box p {
+    margin-top: 15px;
+  }
+
+  .custom-pizza_section .img-box:hover img {
+    transform: scale(1.4);
+  }
