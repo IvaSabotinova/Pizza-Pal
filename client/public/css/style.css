@@ -243,7 +243,7 @@ a:focus {
   fill: #ffbe33;
 }
 
-.user_option .order_online {
+.user_option .login_online {
   display: inline-block;
   padding: 8px 30px;
   background-color: #ffbe33;
@@ -254,7 +254,7 @@ a:focus {
   border: none;
 }
 
-.user_option .order_online:hover {
+.user_option .login_online:hover {
   background-color: #e69c00;
 }
 
@@ -638,7 +638,7 @@ a:focus {
 
 .about_section {
   /* background: #222831; */
-  color: #ffffff;
+  color: #222831;
   background-image: url(/images/background.jpg);
   background-size: cover;
 }
@@ -761,7 +761,7 @@ a:focus {
 }
 
 /* client section start */
-.client_section .heading_container {
+/* .client_section .heading_container {
   margin-bottom: 30px;
 }
 
@@ -851,7 +851,7 @@ a:focus {
   font-size: 24px;
   margin: 0 5px;
   border-radius: 100%;
-}
+} */
 
 /* client section end */
 .contact_section .heading_container {

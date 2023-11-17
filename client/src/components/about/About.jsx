@@ -33,6 +33,8 @@ export default function About() {
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quod distinctio rem sequi adipisci illo ipsam molestiae illum. Recusandae beatae iure eum et illo officiis perferendis nisi totam deserunt magnam!
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt provident sunt molestias alias optio earum reiciendis nam! Ex, harum ipsam assumenda asperiores soluta amet aut nihil magni esse accusantium? Laudantium.
+                </p>
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequatur impedit similique eum facilis delectus ratione illo aliquid rem repellat ut ipsam cupiditate maiores, maxime doloremque ex autem ab error.
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci quam voluptates culpa! Porro quis aperiam quam officia et, iure maxime officiis vitae quasi nam consequatur quod molestias autem ab fugit!
                 </p>

@@ -1,7 +1,7 @@
 import Product from "./Product";
 import { useState, useEffect } from "react";
 import * as productService from '../services/productService';
-import CustomPizza from "./CustomPizza";
+import CustomPizzaItem from "../components/custom-pizza/CustomPizzaItem";
 
 const initialVisibleState = 5;
 
@@ -48,7 +48,7 @@ export default function Menu() {
                 <div className="filters-content">
                     <div className="row grid">
 
-                        {(activeFilter === 'pizza' || activeFilter === '*') && <CustomPizza />}
+                        {(activeFilter === 'pizza' || activeFilter === '*') && <CustomPizzaItem />}
                         {filteredProducts.slice(0, visibleProducts).map(prod => (<Product key={prod.id} {...prod} />))}
 
                     </div>

@@ -1,4 +1,4 @@
-const CustomPizza = () =>{
+const CustomPizzaItem = () =>{
     return(<div className="col-sm-6 col-lg-4 all pizza">
     <div className="box">
         <div>
@@ -81,4 +81,4 @@ const CustomPizza = () =>{
 </div>);
 }
 
-export default CustomPizza;
+export default CustomPizzaItem;

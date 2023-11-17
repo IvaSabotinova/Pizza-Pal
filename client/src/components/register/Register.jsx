@@ -1,6 +1,6 @@
-export default function BookTable() {
+export default function Register() {
   
-  return (<section className="book_section layout_padding">
+  return (<section className="register_section layout_padding">
     <div className="container">
       <div className="heading_container">
         <h2>Book A Table</h2>

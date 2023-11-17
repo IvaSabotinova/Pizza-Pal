@@ -56,12 +56,12 @@ export default function Footer() {
             </div>
             <div className="footer-info">
                 <p>
-                    © <span id="displayYear" /> All Rights Reserved By
-                    <a href="https://html.design/"> Pizza Pal Restaurant</a>
+                    © <span id="displayYear"> </span>All Rights Reserved By
+                    <a href=""> Pizza Pal Restaurant</a>
                     <br />
                     <br />
-                    © <span id="displayYear" /> Distributed By
-                    <a href="https://themewagon.com/" target="_blank"> Pizza Pal Restaurant
+                    © <span id="displayYear"> </span>Distributed By
+                    <a href="" target="_blank"> Pizza Pal Restaurant
                     </a>
                 </p>
             </div>

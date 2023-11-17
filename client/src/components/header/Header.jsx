@@ -36,7 +36,6 @@ export default function Header() {
                                     </a>  */}
                                             <NavLink className="nav-link" to="/">
                                                 Home
-
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
@@ -56,17 +55,20 @@ export default function Header() {
                                             </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/book">
-                                                Book Table
+                                            {/* <a className="nav-link" href="about.html">
+                                        About
+                                    </a> */}
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-page">
+                                                Custom Pizza
                                             </NavLink>
                                         </li>
                                     </ul>
                                     <div className="user_option">
-                                        <a href="" className="user_link">
+                                        {/* <a href="" className="user_link">
                                             <i className="fa fa-user" aria-hidden="true" />
                                         </a>
                                         <a className="cart_link" href="#">
-                                            {/* <svg
+                                             <svg
                                                 version="1.1"
                                                 id="Capa_1"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +120,7 @@ export default function Header() {
                                                 <g></g>
                                                 <g></g>
                                                 <g></g>
-                                            </svg> */}
+                                            </svg> 
                                         </a>
                                         <form className="form-inline">
                                             <button
@@ -127,13 +129,13 @@ export default function Header() {
                                             >
                                                 <i className="fa fa-search" aria-hidden="true" />
                                             </button>
-                                        </form>
-                                        <a href="" className="order_online">
+                                        </form> */}
+                                        <NavLink to="/register" className="login_online">
                                             Register
-                                        </a>
-                                        <a href="" className="order_online">
+                                        </NavLink>
+                                        <NavLink to="/login" className="login_online">
                                             Log In
-                                        </a>
+                                        </NavLink>
                                     </div>
                                 </div>
                             </nav>
@@ -251,15 +253,17 @@ export default function Header() {
                                                 <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/about">About</NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/book">Book Table</NavLink>
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-page">
+                                                    Custom Pizza
+                                                </NavLink>
                                             </li>
                                         </ul>
                                         <div className="user_option">
-                                            <a href="" className="user_link">
+                                            {/* <a href="" className="user_link">
                                                 <i className="fa fa-user" aria-hidden="true"></i>
                                             </a>
                                             <a className="cart_link" href="#">
-                                                {/* <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml: space="preserve">
+                                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml: space="preserve">
                                                     <g>
                                                         <g>
                                                             <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -310,16 +314,19 @@ export default function Header() {
                                                     </g>
                                                     <g>
                                                     </g>
-                                                </svg> */}
+                                                </svg>
                                             </a>
                                             <form className="form-inline">
                                                 <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                                                     <i className="fa fa-search" aria-hidden="true"></i>
                                                 </button>
-                                            </form>
-                                            <a href="" className="order_online">
-                                                Order Online
-                                            </a>
+                                            </form> */}
+                                            <NavLink to="/register" className="login_online">
+                                                Register
+                                            </NavLink>
+                                            <NavLink to="/login" className="login_online">
+                                                Log In
+                                            </NavLink>
                                         </div>
                                     </div>
                                 </nav>

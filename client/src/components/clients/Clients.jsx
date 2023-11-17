@@ -1,13 +1,15 @@
+import './Clients.css'
+
 export default function Clients() {
     
     return (
         <section className="client_section layout_padding-bottom">
             <div className="container">
                 <div className="heading_container heading_center psudo_white_primary mb_45">
-                    <h2>What Says Our Customers</h2>
+                    <h2>What Say Our Customers</h2>
                 </div>
                 <div className="carousel-wrap row ">
-                    <div className="owl-carousel client_owl-carousel">
+                     {/* <div className="owl-carousel client_owl-carousel"> */}
                         <div className="item">
                             <div className="box">
                                 <div className="detail-box">
@@ -40,8 +42,8 @@ export default function Clients() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                     </div> 
                 </div>
-            </div>
+            {/* </div> */}
         </section>);
 }
