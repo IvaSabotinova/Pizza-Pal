@@ -3,7 +3,7 @@ export default function Register() {
   return (<section className="register_section layout_padding">
     <div className="container">
       <div className="heading_container">
-        <h2>Book A Table</h2>
+        <h2>Register</h2>
       </div>
       <div className="row">
         <div className="col-md-6">
