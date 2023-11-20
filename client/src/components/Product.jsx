@@ -8,9 +8,9 @@ const Product = ({
     price,
 
 }) => {
-     
+    const buttonText = name === 'Make Your Custom Pizza' ? 'Proceed' : 'Details';
     return (
-        <>     
+        <>
             <div className="col-sm-6 col-lg-4 all pizza">
                 <div className="box">
                     <div>
@@ -29,7 +29,7 @@ const Product = ({
                                     marginLeft: '120px',
                                     borderRadius: '20px',
                                     padding: '5px',
-                                }}>Details</button>
+                                }}>{buttonText}</button>
                                 <a href="">
                                     <svg
                                         version="1.1"

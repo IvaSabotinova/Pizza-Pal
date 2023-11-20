@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.client_section .container{
+.client_section .container {
   max-height: 660px;
 }
 
@@ -35,15 +35,20 @@
   color: #ffffff;
   padding: 25px;
   border-radius: 5px;
-  text-align: left; 
+  text-align: left;
   height: 242px;
+  transition: transform 0.4s ease;
 }
 
-.client-wrap .item .box .detail-box h4{
+.client-wrap .item .box .detail-box:hover {
+  transform: scale(1.1);
+}
+
+.client-wrap .item .box .detail-box h4 {
   font-family: 'Dancing Script', cursive;
 }
 
-.client_section .box .detail-box p{
+.client_section .box .detail-box p {
   margin-bottom: 0;
   font-size: 15px;
   margin-bottom: 10px;

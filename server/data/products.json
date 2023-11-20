@@ -1,4 +1,21 @@
 {
+  "6403f1b0-7191-404e-acaf-1bebc364023b": {
+    "id": "6403f1b0-7191-404e-acaf-1bebc364023b",
+    "type": "pizza",
+    "name": "Make Your Custom Pizza",
+    "ingredients": "Create your own pizza! Choose your size, base, and add any topping combination you wish!",
+    "size": [
+      "Medium - 6 slices",
+      "Large - 8 slices",
+      "Jumbo - 12 slices"
+    ],
+    "imageUrl": "pizzas/custom-pizza.png",
+    "price": [
+      6.50,
+      8.50,
+      10.50
+    ]
+  },
   "aa6ce88a-df75-4054-ab52-3a0a73e3c912": {
     "id": "aa6ce88a-df75-4054-ab52-3a0a73e3c912",
     "type": "pizza",

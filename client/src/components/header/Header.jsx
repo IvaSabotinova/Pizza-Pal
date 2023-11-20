@@ -58,7 +58,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="about.html">
                                         About
                                     </a> */}
-                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-page">
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/create-pizza">
                                                 Custom Pizza
                                             </NavLink>
                                         </li>
@@ -253,7 +253,7 @@ export default function Header() {
                                                 <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/about">About</NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-page">
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/create-pizza">
                                                     Custom Pizza
                                                 </NavLink>
                                             </li>

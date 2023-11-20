@@ -1,0 +1,10 @@
+{
+    "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b": {
+        "_id": "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b",        
+        "name": "Orinoco Pizza",
+        "size": "Medium - 6 slices",    
+        "ingredients": "dough, ham, olives, peppers, cheese, mushrooms",            
+       "imageUrl": "pizzas/custom-pizza.png",
+        "description": "Spread the ham equally on the dough, then put some finely chopped olives, peppers and mushrooms. Put in the oven for 30 minutes. Can serve with yoghurt."
+      }
+}
