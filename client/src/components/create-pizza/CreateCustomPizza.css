@@ -35,3 +35,11 @@
 .create-pizza_section .form_container button:hover {
   background-color: #e69c00;
 }
+
+.create-pizza_section .errorMessage{
+  color: red;
+  font-size: 0.8em;
+  margin: 0 0 10px;
+}
+
+

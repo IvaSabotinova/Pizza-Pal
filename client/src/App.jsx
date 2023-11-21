@@ -6,7 +6,7 @@ import Login from "./components/login/Login";
 import Footer from "./components/footer/Footer";
 import { Routes, Route } from "react-router-dom"
 import About from "./components/about/About";
-import CreatePizza from "./components/create-pizza/CreatePizza";
+import CreateCustomPizza from "./components/create-pizza/CreateCustomPizza";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                 <Route path="about" element={<About />} />
                 <Route path="register" element={<Register />} />
                 <Route path="login" element={<Login />} />              
-                <Route path="/create-pizza" element={<CreatePizza />} />
+                <Route path="/create-pizza" element={<CreateCustomPizza />} />
             </Routes>
             <Footer />
         </>
