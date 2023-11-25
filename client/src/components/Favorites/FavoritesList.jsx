@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import * as productService from '../services/productService';
+import * as productService from '../../services/productService';
 import FavoriteItem from "./FavoriteItem";
 
 const FavoritesList = () => {
@@ -19,7 +19,7 @@ const FavoritesList = () => {
                 </div>
                 <div className="filters-content">
                     <div className="row grid">
-                        {products.slice(0, 3).map(prod => (<FavoriteItem key={prod.id} {...prod} />))}
+                        {products.slice(0, 3).map(prod => (<FavoriteItem key={prod._id} {...prod} />))}
 
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 const FavoriteItem = ({
-    id,
+    _id,
     type,
     name,
     ingredients,

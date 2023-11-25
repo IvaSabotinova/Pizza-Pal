@@ -1,6 +1,9 @@
-import Product from "./Product";
 import { useState, useEffect } from "react";
-import * as productService from '../services/productService';
+
+import'./Menu.css';
+
+import Product from "./Product";
+import * as productService from '../../services/productService';
 
 const initialVisibleState = 6;
 
@@ -37,7 +40,7 @@ export default function Menu() {
             <section className="food_section layout_padding-bottom">
                 <div className="container">
                     <div className="heading_container heading_center">
-                        <h2>Our Menu</h2>
+                        <h2 className="menu">Our Menu</h2>
                     </div>
                     <ul className="filters_menu">
                         <li className={activeFilter === '*' ? 'active' : ''} onClick={() => filterProducts('*')} data-filter="*"> All </li>
@@ -48,7 +51,7 @@ export default function Menu() {
                     </ul>
                     <div className="filters-content">
                         <div className="row grid">                       
-                            {filteredProducts.slice(0, visibleProducts).map(prod => (<Product key={prod.id} {...prod} />))}
+                            {filteredProducts.slice(0, visibleProducts).map(prod => (<Product key={prod._id} {...prod} />))}
                         </div>
                     </div>
 

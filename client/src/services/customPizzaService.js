@@ -7,3 +7,10 @@ export const createCustomPizza = async (pizzaData) => {
     return result;
 
 }
+
+export const getAll = async () => {
+    const result = await libRequest.get(base_Url);
+    const data = Object.values(result);
+    return data;
+}
+

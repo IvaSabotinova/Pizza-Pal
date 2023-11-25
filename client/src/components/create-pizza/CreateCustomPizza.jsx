@@ -1,7 +1,9 @@
-import './CreateCustomPizza.css';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as customPizzaService from '../../services/customPizzaService'
+
+import './CreateCustomPizza.css';
+
+import * as customPizzaService from '../../services/customPizzaService';
 
 const formInitialState = {
     name: '',
@@ -57,7 +59,7 @@ export default function CreateCustomPizza() {
         const imageUrlRegex = /^https:\/\/.*$/;
         const isValidImageUrl = imageUrlRegex.test(formValues.imageUrl);
 
-        if (!isValidImageUrl) {
+        if (formValues.imageUrl && !isValidImageUrl) {
             setErrors(state => ({ ...state, imageUrl: 'Invalid image url!' }))
         } else {
             setErrors(state => ({ ...state, imageUrl: '' }))
@@ -99,7 +101,8 @@ export default function CreateCustomPizza() {
             || errors.ingredients != ''
             || errors.imageUrl != ''
             || errors.description != ''
-            || Object.values(formValues).some(x => x === '')) {
+            || Object.keys(formValues).some(key => key !== 'imageUrl' && formValues[key] === '')) {
+               
 
             return;
         }
@@ -107,7 +110,7 @@ export default function CreateCustomPizza() {
             const newPizza = await customPizzaService.createCustomPizza(formValues);
             console.log(newPizza)
             console.log(errors)
-            navigate('/');
+            navigate('/custom-pizza-list');
 
         } catch (err) {
             //Error notification

@@ -62,6 +62,14 @@ export default function Header() {
                                                 Custom Pizza
                                             </NavLink>
                                         </li>
+                                        <li className="nav-item">
+                                            {/* <a className="nav-link" href="about.html">
+                                        About
+                                    </a> */}
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-list">
+                                               All Custom Pizzas
+                                            </NavLink>
+                                        </li>
                                     </ul>
                                     <div className="user_option">
                                         {/* <a href="" className="user_link">
@@ -257,6 +265,14 @@ export default function Header() {
                                                     Custom Pizza
                                                 </NavLink>
                                             </li>
+                                            <li className="nav-item">
+                                            {/* <a className="nav-link" href="about.html">
+                                        About
+                                    </a> */}
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-list">
+                                               All Custom Pizzas
+                                            </NavLink>
+                                        </li>
                                         </ul>
                                         <div className="user_option">
                                             {/* <a href="" className="user_link">

@@ -1,5 +1,5 @@
 const Product = ({
-    id,
+    _id,
     type,
     name,
     ingredients,
