@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './CreateCustomPizza.css';
 
 import * as customPizzaService from '../../services/customPizzaService';
+import Paths from '../../constants/Paths';
 
 const formInitialState = {
     name: '',
@@ -110,7 +111,7 @@ export default function CreateCustomPizza() {
             const newPizza = await customPizzaService.createCustomPizza(formValues);
             console.log(newPizza)
             console.log(errors)
-            navigate('/custom-pizza-list');
+            navigate(Paths.CustomPizzaList);
 
         } catch (err) {
             //Error notification

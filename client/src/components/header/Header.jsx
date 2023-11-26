@@ -1,5 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 
+import Paths from "../../constants/Paths";
+
 export default function Header() {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
@@ -14,7 +16,7 @@ export default function Header() {
                     <header className="header_section">
                         <div className="container">
                             <nav className="navbar navbar-expand-lg custom_nav-container ">
-                                <a className="navbar-brand" href="index.html">
+                                <a className="navbar-brand" href="">
                                     <span>Pizza Pal</span>
                                 </a>
                                 <button
@@ -34,7 +36,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="index.html">
                                         Home <span className="sr-only">(current)</span>
                                     </a>  */}
-                                            <NavLink className="nav-link" to="/">
+                                            <NavLink className="nav-link" to={Paths.Home}>
                                                 Home
                                             </NavLink>
                                         </li>
@@ -42,7 +44,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="menu.html">
                                         Menu
                                     </a> */}
-                                            <NavLink style={({ isActive }) => isActive ? { color: "#ffbe33" } : { color: '#ffffff' }} className="nav-link" to="/menu">
+                                            <NavLink style={({ isActive }) => isActive ? { color: "#ffbe33" } : { color: '#ffffff' }} className="nav-link" to={Paths.Menu}>
                                                 Menu
                                             </NavLink>
                                         </li>
@@ -50,7 +52,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="about.html">
                                         About
                                     </a> */}
-                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/about">
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.About}>
                                                 About
                                             </NavLink>
                                         </li>
@@ -58,7 +60,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="about.html">
                                         About
                                     </a> */}
-                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/create-pizza">
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.CreatePizza}>
                                                 Custom Pizza
                                             </NavLink>
                                         </li>
@@ -66,7 +68,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="about.html">
                                         About
                                     </a> */}
-                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-list">
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.CustomPizzaList}>
                                                All Custom Pizzas
                                             </NavLink>
                                         </li>
@@ -239,7 +241,7 @@ export default function Header() {
                         <header className="header_section">
                             <div className="container">
                                 <nav className="navbar navbar-expand-lg custom_nav-container ">
-                                    <a className="navbar-brand" href="index.html">
+                                    <a className="navbar-brand" href="">
                                         <span>
                                             Pizza Pal
                                         </span>
@@ -252,16 +254,16 @@ export default function Header() {
                                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul className="navbar-nav  mx-auto ">
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/">Home </NavLink>
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.Home}>Home </NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/menu">Menu </NavLink>
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.Menu}>Menu </NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/about">About</NavLink>
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.About}>About</NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/create-pizza">
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.CreatePizza}>
                                                     Custom Pizza
                                                 </NavLink>
                                             </li>
@@ -269,7 +271,7 @@ export default function Header() {
                                             {/* <a className="nav-link" href="about.html">
                                         About
                                     </a> */}
-                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to="/custom-pizza-list">
+                                            <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.CustomPizzaList}>
                                                All Custom Pizzas
                                             </NavLink>
                                         </li>

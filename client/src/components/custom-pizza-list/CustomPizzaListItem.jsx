@@ -1,5 +1,9 @@
 import './CustomPizzaList.css'
 
+import { Link } from 'react-router-dom';
+
+import Paths from '../../constants/Paths';
+
 const CustomPizzaListItem = ({
     _id,
     name,
@@ -22,7 +26,7 @@ const CustomPizzaListItem = ({
                             <br />                 
                             <p><span>Ingredients:</span> {ingredients}</p>
                             <div className="button-options">                         
-                                <button>Details</button>
+                                <Link to={`${Paths.CustomPizzaList}/${_id}`}><button>Details</button></Link>
                                 {/* <a href="">
                                     <svg
                                         version="1.1"
