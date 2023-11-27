@@ -1,61 +1,53 @@
+import { Link } from 'react-router-dom';
+
+import './Login.css'
+
+import Paths from '../../constants/Paths';
+
 export default function Login() {
-  
-    return (<section className="register_section layout_padding">
+
+  return (
+    <section className="login_section login_layout_padding">
       <div className="container">
         <div className="heading_container">
-          <h2>Log In</h2>
+          <h2 className="text-center mx-auto">Login</h2>
         </div>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-8 offset-lg-1">
             <div className="form_container">
-              <form action="">
+              <form action="" className="login_form">
                 <div>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Phone Number"
-                  />
-                </div>
-                <div>
-                  <input
+                  <label className="heading_label" htmlFor="email">Email</label>
+                  <input className="form-control" placeholder="Your email..."
+                    id="email"
+                    name="email"
                     type="email"
-                    className="form-control"
-                    placeholder="Your Email"
+                  //value='email'
                   />
+                  {/* {errors.imageUrl && (<p className="errorMessage">{errors.imageUrl}</p>)} */}
                 </div>
-                <div>
-                  <select className="form-control nice-select wide">
-                    <option value="" disabled="" selected="">
-                      How many persons?
-                    </option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                  </select>
+                <div >
+                  <label className="heading_label" htmlFor="password">Password</label>
+                  <input className="form-control" placeholder="Enter password..."
+                    id="password"
+                    name="password"
+                    type="password"
+                  // value='password'
+                  />
+                  {/* {errors.description && (<p className="errorMessage">{errors.description}</p>)} */}
                 </div>
-                <div>
-                  <input type="date" className="form-control" />
+
+                <div className="btn_box offset-4">
+                  <button>Submit</button>
                 </div>
-                <div className="btn_box">
-                  <button>Book Now</button>
-                </div>
+                <p className="field">
+                  <span>If you don't have profile click <Link className='register-link' to={Paths.Register}>here</Link></span>
+                </p>
               </form>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="map_container ">
-              <div id="googleMap" />
             </div>
           </div>
         </div>
       </div>
-    </section>);
-  }
+    </section>
+  );
+}

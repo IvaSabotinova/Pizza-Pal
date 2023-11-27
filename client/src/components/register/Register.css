@@ -1,0 +1,39 @@
+.register_section {
+    margin-top: 20px;
+    margin-bottom: 45px;
+}
+
+.register_section .form_container .form-control {
+    border: 3px solid #706d6d;
+    height: 50px;
+    margin-bottom: 15px;
+    color: #000000;
+    border-radius: 10px;
+}
+
+.register_section .form_container .heading_label {
+    font-family: 'Dancing Script';
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.register_section .form_container button {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    background-color: #ffbe33;
+    color: #ffffff;
+    padding: 10px 55px;
+    border: none;
+    border-radius: 45px;
+}
+
+.register_section .form_container button:hover {
+    background-color: #e69c00;
+}
+
+.register_section .errorMessage {
+    color: red;
+    font-size: 0.8em;
+    margin: 0 0 10px;
+}
