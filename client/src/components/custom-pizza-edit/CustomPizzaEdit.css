@@ -1,3 +1,10 @@
+.edit-pizza_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .edit-pizza_section .heading_container {
   margin-bottom: 15px;
   padding-top: 20px;
@@ -41,5 +48,4 @@
   font-size: 0.8em;
   margin: 0 0 10px;
 }
-
 

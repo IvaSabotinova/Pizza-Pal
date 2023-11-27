@@ -12,6 +12,22 @@ const formInitialState = {
     ingredients: '',
     imageUrl: '',
     description: '',
+    dough: false,
+    pepperoni: false,
+    'smoked-ham': false,
+    bacon: false,
+    chicken: false,
+    cheese: false,
+    mozzarella: false,
+    mushrooms: false,
+    olives: false,
+    peppers: false,
+    'barbecue-sauce': false,
+    onions: false,
+    tomatoes: false,
+    'pesto-sauce': false,
+    cream: false,
+    basil: false,
 }
 
 const errorsInitialState = {
@@ -49,7 +65,10 @@ export default function CreateCustomPizza() {
     };
 
     const validateIngredients = () => {
-        if (!formValues.ingredients) {
+        const atLeastOneChecked = Object.values(formValues)
+            .filter(value => typeof value === 'boolean')
+            .some((isChecked) => isChecked);
+        if (!atLeastOneChecked) {
             setErrors(state => ({ ...state, ingredients: 'Please choose at least one ingredient!' }));
         } else {
             setErrors(state => ({ ...state, ingredients: '' }));
@@ -57,7 +76,7 @@ export default function CreateCustomPizza() {
     };
 
     const validateImageUrl = () => {
-        const imageUrlRegex = /^https:\/\/.*$/;
+        const imageUrlRegex = /^https:\/\/.+$/;
         const isValidImageUrl = imageUrlRegex.test(formValues.imageUrl);
 
         if (formValues.imageUrl && !isValidImageUrl) {
@@ -78,17 +97,10 @@ export default function CreateCustomPizza() {
     const changeHandler = (e) => {
         let value = '';
         switch (e.target.type) {
-            case 'checkbox': value = e.target.checked;
-                setFormValues((state) => ({
-                    ...state,
-                    ingredients: value ? state.ingredients + (state.ingredients ? ', ' : '') + e.target.name : state.ingredients,
-                }));
-
-                break;
-            default: value = e.target.value;
-                setFormValues(state => ({ ...state, [e.target.name]: value }));
-                break
+            case 'checkbox': value = e.target.checked; break;
+            default: value = e.target.value; break
         }
+        setFormValues(state => ({ ...state, [e.target.name]: value }));
     }
 
     const createPizzaHandler = async (e) => {
@@ -98,6 +110,13 @@ export default function CreateCustomPizza() {
         validateIngredients();
         validateImageUrl();
         validateDescription();
+
+        const ingredients = Object.entries(formValues)
+            .filter(([property, value]) => value === true)
+            .map(([property]) => property)
+            .join(', ');
+        formValues.ingredients = ingredients;
+
         if (errors.name != ''
             || errors.size != ''
             || errors.ingredients != ''
@@ -105,13 +124,9 @@ export default function CreateCustomPizza() {
             || errors.description != ''
             || Object.keys(formValues).some(key => key !== 'imageUrl' && formValues[key] === '')) {
 
-
             return;
         }
         try {
-            const distinctIngredients = new Set(formValues.ingredients.split(', '))
-            const newIngredientsProp = [...distinctIngredients].join(', ');
-            formValues.ingredients = newIngredientsProp;
             const newPizza = await customPizzaService.createCustomPizza(formValues);
             console.log(newPizza)
             console.log(errors)
@@ -124,9 +139,8 @@ export default function CreateCustomPizza() {
     }
 
 
-
     return (
-        <section className="create-pizza_section layout_padding">
+        <section className="create-pizza_section pizza_layout_padding">
             <div className="container">
                 <div className="heading_container">
                     <h2 className="text-center mx-auto">Create Your Custom Pizza</h2>
@@ -134,7 +148,7 @@ export default function CreateCustomPizza() {
                 <div className="row">
                     <div className="col-md-8 offset-lg-1">
                         <div className="form_container">
-                            <form action="" style={{ display: 'flex', flexDirection: 'column' }} onSubmit={createPizzaHandler}>
+                            <form action="" className="create-pizza_form" onSubmit={createPizzaHandler}>
                                 <div >
                                     <label className="heading_label" htmlFor="name">Name</label>
                                     <input className="form-control" placeholder="Name your pizza..."
@@ -238,7 +252,7 @@ export default function CreateCustomPizza() {
                                             id="peppers"
                                             checked={formValues.peppers}
                                             onChange={changeHandler} />
-                                        <label style={{ marginRight: '5px' }} htmlFor="barbecue-sauce">barbecue sauce</label>
+                                        <label style={{ marginRight: '5px' }} htmlFor="barbecue-sauce">barbecue-sauce</label>
                                         <input
                                             type="checkBox"
                                             name="barbecue-sauce"

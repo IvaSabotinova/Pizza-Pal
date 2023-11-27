@@ -1,10 +1,26 @@
 {
   "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b": {
-      "_id": "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b",        
-      "name": "Orinoco Pizza",
-      "size": "Medium - 6 slices",    
-      "ingredients": "dough, smoked-ham, olives, peppers, cheese, mushrooms",            
-     "imageUrl": "https://static.vecteezy.com/system/resources/previews/002/286/108/original/pizza-with-sliced-tomatoes-mushrooms-salami-sausage-onion-bell-pepper-black-olives-and-cheese-italian-fast-food-isolated-illustration-vector.jpg",
-      "description": "Spread the ham equally on the dough, then put some finely chopped olives, peppers and mushrooms. Put in the oven for 30 minutes. Can serve with yoghurt."
-    }
+    "_id": "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b",
+    "name": "Orinoco Pizza",
+    "size": "Medium - 6 slices",
+    "ingredients": "dough, smoked-ham, olives, peppers, cheese, mushrooms",
+    "imageUrl": "https://static.vecteezy.com/system/resources/previews/002/286/108/original/pizza-with-sliced-tomatoes-mushrooms-salami-sausage-onion-bell-pepper-black-olives-and-cheese-italian-fast-food-isolated-illustration-vector.jpg",
+    "description": "Spread the ham equally on the dough, then put some finely chopped olives, peppers and mushrooms. Put in the oven for 30 minutes. Can serve with yoghurt.",
+    "dough": true,
+    "pepperoni": false,
+    "smoked-ham": true,
+    "bacon": false,
+    "chicken": false,
+    "cheese": true,
+    "mozzarella": false,
+    "mushrooms": true,
+    "olives": true,
+    "peppers": true,
+    "barbecue-sauce": false,
+    "onions": false,
+    "tomatoes": false,
+    "pesto-sauce": false,
+    "cream": false,
+    "basil": false
+  }
 }

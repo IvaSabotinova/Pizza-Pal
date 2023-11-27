@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
+import './CustomPizzaEdit.css'
 
 import * as customPizzaService from '../../services/customPizzaService';
 import Paths from '../../constants/Paths';
@@ -11,12 +13,36 @@ const formInitialState = {
     ingredients: '',
     imageUrl: '',
     description: '',
+    dough: false,
+    pepperoni: false,
+    'smoked-ham': false,
+    bacon: false,
+    chicken: false,
+    cheese: false,
+    mozzarella: false,
+    mushrooms: false,
+    olives: false,
+    peppers: false,
+    'barbecue-sauce': false,
+    onions: false,
+    tomatoes: false,
+    'pesto-sauce': false,
+    cream: false,
+    basil: false,
 }
-
+const errorsInitialState = {
+    name: '',
+    size: '',
+    ingredients: '',
+    imageUrl: '',
+    description: '',
+}
 export default function CustomPizzaEdit() {
     const { pizzaId } = useParams();
     const navigate = useNavigate();
     const [pizza, setPizza] = useState(formInitialState);
+    const [errors, setErrors] = useState(errorsInitialState);
+    const nameRef = useRef();
 
     useEffect(() => {
         customPizzaService.getPizzaDetails(pizzaId)
@@ -25,75 +51,97 @@ export default function CustomPizzaEdit() {
             })
     }, []);
 
+    useEffect(() => {
+        nameRef.current.focus();
+    }, []);
+
     const setInitialFormData = (pizzaData) => {
         setPizza({
             ...pizzaData,
             ingredients: '',
-            dough: pizzaData.ingredients.includes('dough') ? true : false,
-            pepperoni: pizzaData.ingredients.includes('pepperoni') ? true : false,
-            'smoked-ham': pizzaData.ingredients.includes('smoked-ham') ? true : false,
-            bacon: pizzaData.ingredients.includes('bacon') ? true : false,
-            chicken: pizzaData.ingredients.includes('chicken') ? true : false,
-            cheese: pizzaData.ingredients.includes('cheese') ? true : false,
-            mozzarella: pizzaData.ingredients.includes('mozzarella') ? true : false,
-            mushrooms: pizzaData.ingredients.includes('mushrooms') ? true : false,
-            olives: pizzaData.ingredients.includes('olives') ? true : false,
-            peppers: pizzaData.ingredients.includes('peppers') ? true : false,
-            'barbecue sauce': pizzaData.ingredients.includes('barbecue sauce') ? true : false,
-            onions: pizzaData.ingredients.includes('onions') ? true : false,
-            tomatoes: pizzaData.ingredients.includes('tomatoes') ? true : false,
-            'pesto-sauce': pizzaData.ingredients.includes('pesto-sauce') ? true : false,
-            cream: pizzaData.ingredients.includes('cream') ? true : false,
-            basil: pizzaData.ingredients.includes('basil') ? true : false,
         });
     };
 
-    console.log(pizza)
+    const validateName = () => {
+        if (pizza.name.length < 2 || pizza.name.length > 30) {
+            setErrors(state => ({ ...state, name: 'Name must be between 2 and 30 characters!' }));
+        } else {
+            setErrors(state => ({ ...state, name: '' }));
+        }
+    };
+
+    const validateSize = () => {
+        if (!pizza.size) {
+            setErrors(state => ({ ...state, size: 'Please choose a size!' }));
+        } else {
+            setErrors(state => ({ ...state, size: '' }));
+        }
+    };
+
+    const validateIngredients = () => {
+        const atLeastOneChecked = Object.values(pizza)
+            .filter(value => typeof value === 'boolean')
+            .some((isChecked) => isChecked);
+        if (!atLeastOneChecked) {
+            setErrors(state => ({ ...state, ingredients: 'Please choose at least one ingredient!' }));
+        } else {
+            setErrors(state => ({ ...state, ingredients: '' }));
+        }
+    };
+
+    const validateImageUrl = () => {
+        const imageUrlRegex = /^https:\/\/.+$/;
+        const isValidImageUrl = imageUrlRegex.test(pizza.imageUrl);
+
+        if (pizza.imageUrl && !isValidImageUrl) {
+            setErrors(state => ({ ...state, imageUrl: 'Invalid image url!' }))
+        } else {
+            setErrors(state => ({ ...state, imageUrl: '' }))
+        }
+    };
+
+    const validateDescription = () => {
+        if (pizza.description.length < 10 || pizza.description.length > 1000) {
+            setErrors(state => ({ ...state, description: 'Description must be between 10 and 1000 characters.' }));
+        } else {
+            setErrors(state => ({ ...state, description: '' }));
+        }
+    };
+
     const changeHandler = (e) => {
         let value = '';
         switch (e.target.type) {
-            case 'checkbox':
-                value = e.target.checked;
-                setPizza(state => ({
-                    ...state,
-                    [e.target.name]: e.target.checked,
-                }));
-                break;
-            default: value = e.target.value;
-                setPizza(state => ({ ...state, [e.target.name]: value }));
-                break
+            case 'checkbox': value = e.target.checked; break;
+            default: value = e.target.value; break
         }
+        setPizza(state => ({ ...state, [e.target.name]: value }));
     }
     const editPizzaHandler = async (e) => {
         e.preventDefault();
-        // validateName();
-        // validateSize();
-        // validateIngredients();
-        // validateImageUrl();
-        // validateDescription();
-        // if (errors.name != ''
-        //     || errors.size != ''
-        //     || errors.ingredients != ''
-        //     || errors.imageUrl != ''
-        //     || errors.description != ''
-        //     || Object.keys(formValues).some(key => key !== 'imageUrl' && formValues[key] === '')) {
+        validateName();
+        validateSize();
+        validateIngredients();
+        validateImageUrl();
+        validateDescription();
 
+        const newIngredientsString = Object.entries(pizza)
+            .filter(([property, value]) => value === true)
+            .map(([property]) => property)
+            .join(', ');
 
-        //     return;
-        // }
+        pizza.ingredients = newIngredientsString;
+
+        if (errors.name != ''
+            || errors.size != ''
+            || errors.ingredients != ''
+            || errors.imageUrl != ''
+            || errors.description != ''
+            || Object.keys(pizza).some(key => key !== 'imageUrl' && pizza[key] === '')) {
+
+            return;
+        }
         try {
-            const newIngredientsString = Object.entries(pizza)
-                .filter(([property, value]) => value === true)
-                .map(([property]) => property)
-                .join(', ');
-
-            const pizzaArray = Object.entries(pizza)
-                .filter(([property, value]) => typeof value !== 'boolean');
-
-            const pizzaObject = Object.fromEntries(pizzaArray);            
-            pizzaObject.ingredients = newIngredientsString;
-        
-            const editedPizza = await customPizzaService.editPizzaById(pizzaId, pizzaObject);
+            const editedPizza = await customPizzaService.editPizzaById(pizzaId, pizza);
             console.log(editedPizza);
             navigate(pathToUrl(Paths.CustomPizzaDetails, { pizzaId }));
 
@@ -105,7 +153,7 @@ export default function CustomPizzaEdit() {
 
 
     return (
-        <section className="edit-pizza_section layout_padding">
+        <section className="edit-pizza_section pizza_layout_padding">
             <div className="container">
                 <div className="heading_container">
                     <h2 className="text-center mx-auto">Edit Your Pizza {pizza.name}</h2>
@@ -113,7 +161,7 @@ export default function CustomPizzaEdit() {
                 <div className="row">
                     <div className="col-md-8 offset-lg-1">
                         <div className="form_container">
-                            <form action="" style={{ display: 'flex', flexDirection: 'column' }} onSubmit={editPizzaHandler}>
+                            <form action="" className="edit-pizza_form" onSubmit={editPizzaHandler}>
                                 <div >
                                     <label className="heading_label" htmlFor="name">Name</label>
                                     <input className="form-control" placeholder="Name your pizza..."
@@ -122,10 +170,9 @@ export default function CustomPizzaEdit() {
                                         name='name'
                                         value={pizza.name}
                                         onChange={changeHandler}
-                                    // onBlur={validateName}
-                                    // ref={nameRef} 
-                                    />
-                                    {/* {errors.name && (<p className="errorMessage">{errors.name}</p>)} */}
+                                        onBlur={validateName}
+                                        ref={nameRef} />
+                                    {errors.name && (<p className="errorMessage">{errors.name}</p>)}
                                 </div>
                                 <div>
                                     <label className="heading_label" htmlFor="size">Size</label>
@@ -134,18 +181,16 @@ export default function CustomPizzaEdit() {
                                         name="size"
                                         value={pizza.size}
                                         onChange={changeHandler}
-                                    //   onBlur={validateSize}
-                                    >
+                                        onBlur={validateSize} >
                                         <option value="" disabled="" >Choose size?</option>
                                         <option value="Medium - 6 slices">Medium - 6 slices</option>
                                         <option value="Large - 8 slices">Large - 8 slices</option>
                                         <option value="Jumbo - 12 slices">Jumbo - 12 slices</option>
                                     </select>
-                                    {/* {errors.size && (<p className="errorMessage">{errors.size}</p>)} */}
+                                    {errors.size && (<p className="errorMessage">{errors.size}</p>)}
                                 </div>
                                 <div style={{ marginBottom: '20px' }}
-                                // onBlur={validateIngredients}
-                                >
+                                    onBlur={validateIngredients} >
                                     <h3>Choose Ingredients</h3>
                                     <div>
                                         <label style={{ marginRight: '5px' }} htmlFor="dough">dough</label>
@@ -190,7 +235,6 @@ export default function CustomPizzaEdit() {
                                             id="cheese"
                                             checked={pizza.cheese}
                                             onChange={changeHandler} />
-
                                     </div>
                                     <div>
                                         <label style={{ marginRight: '5px' }} htmlFor="mozzarella">mozzarella</label>
@@ -221,7 +265,7 @@ export default function CustomPizzaEdit() {
                                             id="peppers"
                                             checked={pizza.peppers}
                                             onChange={changeHandler} />
-                                        <label style={{ marginRight: '5px' }} htmlFor="barbecue-sauce">barbecue sauce</label>
+                                        <label style={{ marginRight: '5px' }} htmlFor="barbecue-sauce">barbecue-sauce</label>
                                         <input
                                             type="checkBox"
                                             name="barbecue-sauce"
@@ -265,9 +309,8 @@ export default function CustomPizzaEdit() {
                                             id="basil"
                                             checked={pizza.basil}
                                             onChange={changeHandler} />
-
                                     </div>
-                                    {/* {errors.ingredients && (<p className="errorMessage">{errors.ingredients}</p>)} */}
+                                    {errors.ingredients && (<p className="errorMessage">{errors.ingredients}</p>)}
                                 </div>
 
                                 <div>
@@ -278,9 +321,8 @@ export default function CustomPizzaEdit() {
                                         type="text"
                                         value={pizza.imageUrl}
                                         onChange={changeHandler}
-                                    // onBlur={validateImageUrl} 
-                                    />
-                                    {/* {errors.imageUrl && (<p className="errorMessage">{errors.imageUrl}</p>)} */}
+                                        onBlur={validateImageUrl} />
+                                    {errors.imageUrl && (<p className="errorMessage">{errors.imageUrl}</p>)}
                                 </div>
                                 <div >
                                     <label className="heading_label" htmlFor="description">Description</label>
@@ -289,9 +331,9 @@ export default function CustomPizzaEdit() {
                                         id="description"
                                         value={pizza.description}
                                         onChange={changeHandler}
-                                    //  onBlur={validateDescription}
-                                    ></textarea>
-                                    {/* {errors.description && (<p className="errorMessage">{errors.description}</p>)} */}
+                                        onBlur={validateDescription}>
+                                    </textarea>
+                                    {errors.description && (<p className="errorMessage">{errors.description}</p>)}
                                 </div>
 
                                 <div className="btn_box offset-3">
