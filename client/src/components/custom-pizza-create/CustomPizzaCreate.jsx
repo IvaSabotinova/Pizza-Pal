@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './CreateCustomPizza.css';
+import './CustomPizzaCreate.css';
 
 import * as customPizzaService from '../../services/customPizzaService';
 import Paths from '../../constants/Paths';
@@ -69,7 +69,7 @@ export default function CreateCustomPizza() {
 
     const validateDescription = () => {
         if (formValues.description.length < 10 || formValues.description.length > 1000) {
-            setErrors(state => ({ ...state, description: 'Description must be between 10 and 1000 characters.'}));
+            setErrors(state => ({ ...state, description: 'Description must be between 10 and 1000 characters.' }));
         } else {
             setErrors(state => ({ ...state, description: '' }));
         }
@@ -83,6 +83,7 @@ export default function CreateCustomPizza() {
                     ...state,
                     ingredients: value ? state.ingredients + (state.ingredients ? ', ' : '') + e.target.name : state.ingredients,
                 }));
+
                 break;
             default: value = e.target.value;
                 setFormValues(state => ({ ...state, [e.target.name]: value }));
@@ -103,11 +104,14 @@ export default function CreateCustomPizza() {
             || errors.imageUrl != ''
             || errors.description != ''
             || Object.keys(formValues).some(key => key !== 'imageUrl' && formValues[key] === '')) {
-               
+
 
             return;
         }
         try {
+            const distinctIngredients = new Set(formValues.ingredients.split(', '))
+            const newIngredientsProp = [...distinctIngredients].join(', ');
+            formValues.ingredients = newIngredientsProp;
             const newPizza = await customPizzaService.createCustomPizza(formValues);
             console.log(newPizza)
             console.log(errors)

@@ -20,3 +20,7 @@ export const getPizzaDetails = async (pizzaId) =>{
     return result;
 }
 
+export const editPizzaById = async (pizzaId, pizzaData) =>{
+    const result = await libRequest.put(`${base_Url}/${pizzaId}`, pizzaData);
+    return result;
+}

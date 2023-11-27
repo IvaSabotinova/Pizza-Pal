@@ -1,0 +1,45 @@
+.edit-pizza_section .heading_container {
+  margin-bottom: 15px;
+  padding-top: 20px;
+}
+
+.edit-pizza_section .form_container .form-control {
+  width: 80%;
+  border: 3px solid #ffbe33;
+  height: 50px;
+  margin-bottom: 15px;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.edit-pizza_section .form_container h3 {
+  font-family: 'Dancing Script', cursive;
+}
+
+.edit-pizza_section .form_container .heading_label{
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+}
+
+.edit-pizza_section .form_container button {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  background-color: #ffbe33;
+  color: #ffffff;
+  padding: 10px 55px;
+  border: none;
+  border-radius: 45px;
+}
+
+.edit-pizza_section .form_container button:hover {
+  background-color: #e69c00;
+}
+
+.edit-pizza_section .errorMessage{
+  color: red;
+  font-size: 0.8em;
+  margin: 0 0 10px;
+}
+
+

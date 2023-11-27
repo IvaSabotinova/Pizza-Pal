@@ -7,12 +7,11 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Footer from "./components/footer/Footer";
 import About from "./components/about/About";
-import CreateCustomPizza from "./components/create-pizza/CreateCustomPizza";
+import CustomPizzaCreate from './components/custom-pizza-create/CustomPizzaCreate';
 import CustomPizzaList from "./components/custom-pizza-list/CustomPizzaList";
 import Paths from "./constants/Paths";
-import PizzaDetails from "./components/pizza-details/PizzaDetails";
-
-//  import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomPizzaDetails from './components/custom-pizza-details/CustomPizzaDetails';
+import CustomPizzaEdit from "./components/custom-pizza-edit/CustomPizzaEdit";
 
 
 
@@ -26,9 +25,10 @@ function App() {
                 <Route path={Paths.About} element={<About />} />
                 <Route path={Paths.Register} element={<Register />} />
                 <Route path={Paths.Login} element={<Login />} />              
-                <Route path={Paths.CreatePizza} element={<CreateCustomPizza />} />
+                <Route path={Paths.CreatePizza} element={<CustomPizzaCreate />} />
               <Route path={Paths.CustomPizzaList} element={<CustomPizzaList />} />
-              <Route path={`${Paths.CustomPizzaList}/:pizzaId`} element={<PizzaDetails />} />
+              <Route path={Paths.CustomPizzaDetails} element={<CustomPizzaDetails />} />
+              <Route path={Paths.CustomPizzaEdit} element={<CustomPizzaEdit/>}/>
             </Routes>
             <Footer />
         </>

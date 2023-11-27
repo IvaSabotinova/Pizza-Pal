@@ -3,6 +3,7 @@ import './CustomPizzaList.css'
 import { Link } from 'react-router-dom';
 
 import Paths from '../../constants/Paths';
+import { pathToUrl } from '../../utils/pathUtil';
 
 const CustomPizzaListItem = ({
     _id,
@@ -22,11 +23,11 @@ const CustomPizzaListItem = ({
                             <img src={imageSrc} alt="custom-pizza" />
                         </div>
                         <div className="detail-box">
-                            <h5><span>Name:</span> {name}</h5>    
-                            <br />                 
+                            <h5><span>Name:</span> {name}</h5>
+                            <br />
                             <p><span>Ingredients:</span> {ingredients}</p>
-                            <div className="button-options">                         
-                                <Link to={`${Paths.CustomPizzaList}/${_id}`}><button>Details</button></Link>
+                            <div className="button-options">
+                                <Link to={pathToUrl(Paths.CustomPizzaDetails, { pizzaId: _id })}><button>Details</button></Link>
                                 {/* <a href="">
                                     <svg
                                         version="1.1"

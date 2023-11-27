@@ -1,6 +1,5 @@
 .details-wrapper {
     position: relative;
-    height: 70vh;
     width: 80vw;
     padding: 1% 1%;
     margin: 2% auto;
@@ -19,11 +18,17 @@
 }
 
 .details-info {
+    height: 395px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     max-width: 50%;
     padding: 0 20px;
+    overflow: auto;
+}
+
+.details-info p{
+    margin-top: 10px;
 }
 
 .details-info .details-property {
@@ -57,5 +62,7 @@
     background-color: #d9534f;
     margin-left: 10px;
 }
+
+
 
 

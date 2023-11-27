@@ -5,8 +5,10 @@ const Paths = {
     Register: '/register',
     Login: '/login',
     Logout: '/logout',
-    CreatePizza: '/create-pizza',
-    CustomPizzaList: '/custom-pizzas',
+    CreatePizza: '/create-custom-pizza',
+    CustomPizzaList: '/custom-pizzas',    
+    CustomPizzaDetails: '/custom-pizzas/:pizzaId',
+    CustomPizzaEdit: '/custom-pizzas/:pizzaId/edit'
 }
 
 export default Paths;
