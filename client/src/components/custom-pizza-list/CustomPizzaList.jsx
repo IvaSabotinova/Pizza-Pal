@@ -6,7 +6,7 @@ import './CustomPizzaList.css'
 
 export default function CustomPizzaList() {
 
-    const [pizzas, setPizzas] = useState([]);   
+    const [pizzas, setPizzas] = useState([]);
 
     useEffect(() => {
         customPizzaService.getAll()
@@ -19,21 +19,17 @@ export default function CustomPizzaList() {
             <section className="food_section layout_padding-bottom">
                 <div className="container">
                     <div className="heading_container heading_center">
-                        <h2 style={{marginTop: '20px'}}>All Custom Pizzas</h2>
+                        <h2 style={{ marginTop: '20px' }}>All Custom Pizzas</h2>
                     </div>
-                    {/* <ul className="filters_menu">
-                         <li > </li> 
-                    </ul> */}
                     <div className="filters-content">
-                        <div className="row grid">                       
-                            {pizzas.map(p => (<CustomPizzaListItem key={p._id} {...p} />))}
+                        <div className="row grid">
+                            {pizzas.length === 0 &&
+                                (<div className="centered-container">
+                                    <p className="empty-list">There are no pizzas to display!!!</p>
+                                </div>)}
+                            {pizzas.length > 0 && pizzas.map(p => (<CustomPizzaListItem key={p._id} {...p} />))}
                         </div>
                     </div>
-
-                    {/* {visibleProducts < filteredProducts.length &&
-                        <div className="btn-box" onClick={loadMore}>
-                            <a href="">View More</a>
-                        </div>} */}
                 </div>
             </section>
         </>

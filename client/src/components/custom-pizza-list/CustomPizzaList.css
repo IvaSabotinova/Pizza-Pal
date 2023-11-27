@@ -28,4 +28,20 @@
     transform: translateX(-50%);
 }
 
+.centered-container{
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding-bottom: 80px;
+}
+
+.empty-list{
+  font-weight: 900;
+  font-style: oblique;
+  font-size: 38px;
+  color: #cc3d1d; 
+  margin-top: 80px;
+}
+
   

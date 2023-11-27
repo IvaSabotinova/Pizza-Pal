@@ -24,3 +24,10 @@ export const editPizzaById = async (pizzaId, pizzaData) =>{
     const result = await libRequest.put(`${base_Url}/${pizzaId}`, pizzaData);
     return result;
 }
+
+
+export const deletePizza = async (pizzaId) =>{
+
+    const result = await libRequest.remove(`${base_Url}/${pizzaId}`);
+    return result;
+}
