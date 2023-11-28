@@ -30,7 +30,7 @@ export const AuthProvider = ({
         navigate(Paths.Home);
     }
 
-    const logOutHandler = () =>{
+    const logOutHandler = () => {
         setAuth({});
         localStorage.removeItem('accessToken');
         navigate(Paths.Home);

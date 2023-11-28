@@ -1,4 +1,5 @@
 import { useContext, useState, useRef, useEffect } from 'react';
+
 import AuthContext from '../../contexts/AuthContext';
 
 import './Register.css';
@@ -72,7 +73,7 @@ export default function Register() {
     };
 
 
-    const onSubmitRegister = (e) => {
+    const registerHandler = (e) => {
         e.preventDefault();
         validateUsername();
         validateEmail();
@@ -104,7 +105,7 @@ export default function Register() {
                 <div className="row">
                     <div className="col-md-8 offset-lg-1">
                         <div className="form_container">
-                            <form action="" className="register_form" onSubmit={onSubmitRegister}>
+                            <form action="" className="register_form" onSubmit={registerHandler}>
                                 <div >
                                     <label className="heading_label" htmlFor="username">Username</label>
                                     <input className="form-control" placeholder="Your username here..."
