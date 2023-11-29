@@ -9,7 +9,7 @@ const Paths = {
     CustomPizzaList: '/custom-pizzas',    
     CustomPizzaDetails: '/custom-pizzas/:pizzaId',
     CustomPizzaEdit: '/custom-pizzas/:pizzaId/edit',
-    // CustomPizzaDelete: 'custom-pizzas/:pizzaId/delete'
+    
 }
 
 export default Paths;

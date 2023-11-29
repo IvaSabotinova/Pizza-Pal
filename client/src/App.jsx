@@ -14,6 +14,7 @@ import CustomPizzaCreate from './components/custom-pizza-create/CustomPizzaCreat
 import CustomPizzaList from "./components/custom-pizza-list/CustomPizzaList";
 import CustomPizzaDetails from './components/custom-pizza-details/CustomPizzaDetails';
 import CustomPizzaEdit from "./components/custom-pizza-edit/CustomPizzaEdit";
+import Logout from "./components/logout/Logout";
 
 
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path={Paths.About} element={<About />} />
                 <Route path={Paths.Register} element={<Register />} />
                 <Route path={Paths.Login} element={<Login />} />
+                <Route path={Paths.Logout} element={<Logout />} />
                 <Route path={Paths.CreatePizza} element={<CustomPizzaCreate />} />
                 <Route path={Paths.CustomPizzaList} element={<CustomPizzaList />} />
                 <Route path={Paths.CustomPizzaDetails} element={<CustomPizzaDetails />} />

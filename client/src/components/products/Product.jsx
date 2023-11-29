@@ -24,13 +24,13 @@ const Product = ({
                                 <h6>BGN{price[0].toFixed(2)}</h6>
                                 <button style={{
                                     backgroundColor: '#ffbe33',
-                                    color: '#ffffff',
-                                    marginRight: '10px',
-                                    marginLeft: '120px',
+                                    color: '#ffffff',                               
+                                    marginLeft: '150px',
                                     borderRadius: '20px',
-                                    padding: '5px',
+                                    padding: '8px 17px',
+                                    border: 'none',
                                 }}>{buttonText}</button>
-                                <a href="">
+                                {/* <a href="">
                                     <svg
                                         version="1.1"
                                         id="Capa_1"
@@ -84,7 +84,7 @@ const Product = ({
                                         <g></g>
                                         <g></g>
                                     </svg>
-                                </a>
+                                </a> */}
 
                             </div>
                         </div>

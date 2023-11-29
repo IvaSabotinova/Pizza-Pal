@@ -36,8 +36,8 @@ export default function Login() {
   }
 
   const validatePassword = () => {
-    if (formValues.password.length < 6) {
-      setErrors(state => ({ ...state, [LoginFormKeys.Password]: 'Password must be at least 6 characters!' }))
+    if (formValues.password.length < 5) {
+      setErrors(state => ({ ...state, [LoginFormKeys.Password]: 'Password must be at least 5 characters!' }))
     } else {
       setErrors(state => ({ ...state, [LoginFormKeys.Password]: '' }));
     }

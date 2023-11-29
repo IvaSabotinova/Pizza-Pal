@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { pathToUrl } from '../../utils/pathUtil';
+
 const FavoriteItem = ({
     _id,
     type,
@@ -6,27 +9,31 @@ const FavoriteItem = ({
     size,
     imageUrl,
     price,
-}) =>{
-    return( 
+}) => {
+    return (
         <div className="col-sm-6 col-lg-4 all pizza">
-        <div className="box">
-            <div>
-                <div className="img-box">
-                    <img src={`images/${imageUrl}`} alt="product" />
-                </div>
-                <div className="detail-box">
-                    <h5>{name}</h5>
-                    <div className="options">
-                        <h6>BGN{price[0].toFixed(2)}</h6>
-                        <button style={{
-                            backgroundColor: '#ffbe33',
-                            color: '#ffffff',
-                            marginRight: '10px',
-                            marginLeft: '120px',
-                            borderRadius: '20px', 
-                            padding: '5px',
-                        }}>Details</button>
-                        <a href="">
+            <div className="box">
+                <div>
+                    <div className="img-box">
+                        <img src={`images/${imageUrl}`} alt="product" />
+                    </div>
+                    <div className="detail-box">
+                        <h5>{name}</h5>
+                        <div className="options">
+                            <h6>BGN{price[0].toFixed(2)}</h6>
+                            <Link><button style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                backgroundColor: '#ffbe33',
+                                color: '#ffffff',
+                                // marginRight: '10px',
+                                marginLeft: '150px',
+                                borderRadius: '20px',
+                                padding: '8px 17px',
+                                border: 'none',
+                            }} >Details
+                            </button></Link>
+                            {/* <a href="">
                             <svg
                                 version="1.1"
                                 id="Capa_1"
@@ -80,13 +87,13 @@ const FavoriteItem = ({
                                 <g></g>
                                 <g></g>
                             </svg>
-                        </a>
+                        </a> */}
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>       
     );
 }
 
