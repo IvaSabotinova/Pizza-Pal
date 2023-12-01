@@ -6,10 +6,11 @@ const Paths = {
     Login: '/login',
     Logout: '/logout',
     CreatePizza: '/create-custom-pizza',
-    CustomPizzaList: '/custom-pizzas',    
-    CustomPizzaDetails: '/custom-pizzas/:pizzaId',
-    CustomPizzaEdit: '/custom-pizzas/:pizzaId/edit',
-    
+    CustomPizzaList: '/custom-pizzas',
+    CustomPizzaDetails: '/customPizzas/details/:pizzaId',
+    CustomPizzaEdit: '/customPizzas/edit/:pizzaId',
+    MyCustomPizzas: '/customPizzas/all/:_ownerId',
+    NotFound: '*'
 }
 
 export default Paths;

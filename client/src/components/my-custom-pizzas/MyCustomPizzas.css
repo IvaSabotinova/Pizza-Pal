@@ -1,0 +1,51 @@
+.grid {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.heading_center h2{
+  margin-bottom: 22px;
+}
+
+.detail-box span {
+    color: orange
+}
+
+.detail-box .button-options button {   
+    background-color: #ffbe33;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 8px 17px;
+    border: none;
+}
+
+
+.detail-box .button-options button:hover {
+    background-color: #e69c00;
+  }
+  
+
+.detail-box .button-options {    
+    text-align: center;   
+    position: absolute;
+    bottom: 15px;   
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.centered-container{
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding-bottom: 80px;
+}
+
+.empty-list{
+  font-weight: 900;
+  font-style: oblique;
+  font-size: 38px;
+  color: #cc3d1d; 
+  margin-top: 80px;
+}

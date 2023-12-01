@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import './CustomPizzaDetails.css'
@@ -6,6 +6,9 @@ import './CustomPizzaDetails.css'
 import * as customPizzaService from '../../services/customPizzaService';
 import Paths from '../../constants/Paths';
 import { pathToUrl } from '../../utils/pathUtil';
+import { formatDate } from '../../utils/dateUtil'
+import AuthContext from '../../contexts/AuthContext';
+
 
 export default function CustomPizzaDetails() {
 
@@ -14,6 +17,7 @@ export default function CustomPizzaDetails() {
     const [shownButtons, setShownButtons] = useState(true);
     const [shownDelete, setShownDelete] = useState(false);
     const navigate = useNavigate();
+    const { userId } = useContext(AuthContext)
 
     useEffect(() => {
         customPizzaService.getPizzaDetails(pizzaId)
@@ -33,7 +37,7 @@ export default function CustomPizzaDetails() {
 
     const deleteHandler = async (e) => {
         try {
-            
+
             await customPizzaService.deletePizza(pizzaId);
             navigate(Paths.CustomPizzaList)
 
@@ -56,7 +60,11 @@ export default function CustomPizzaDetails() {
                     </p>
                     <p>
                         <span className='details-property'>Creator:</span>
-                        <span className='details-content'>{' To be advised :)'}</span>
+                        <span className='details-content'> {pizza.creator?.username}</span>
+                    </p>
+                    <p>
+                        <span className='details-property'>Published On:</span>
+                        <span className='details-content'> {formatDate(pizza._createdOn)}</span>
                     </p>
                     <p>
                         <span className='details-property'>Size:</span>
@@ -70,11 +78,12 @@ export default function CustomPizzaDetails() {
                         <span className='details-property'>Description:</span>
                         <span className='details-content'> {pizza.description}</span>
                     </p>
-                    {shownButtons && (
+                    {userId === pizza._ownerId && shownButtons && (
                         <div className='buttons'>
                             <Link to={pathToUrl(Paths.CustomPizzaEdit, { pizzaId })}> <button className="edit-button">Edit</button></Link>
                             <button onClick={handleShowButtons} className="delete-button">Delete</button>
                         </div>)}
+                  
                     {shownDelete && <div>
                         <p className="confirm-deletion">Are you sure you want to permanently delete that pizza?</p>
                         <button onClick={deleteHandler} className="confirm-delete">YES</button>

@@ -13,20 +13,35 @@ export const getAll = async () => {
     return data;
 }
 
-
-export const getPizzaDetails = async (pizzaId) =>{
-    const result = await libRequest.get(`${base_Url}/${pizzaId}`);
-    console.log(result)
+export const getAllByOwnerId = async (ownerId) =>{
+    const query = new URLSearchParams({
+        where: `_ownerId="${ownerId}"`,
+        //load: `creator=_ownerId:users`
+    });
+    const result = await libRequest.get(`${base_Url}?${query}`);
+    console.log(result);
     return result;
 }
 
-export const editPizzaById = async (pizzaId, pizzaData) =>{
+
+export const getPizzaDetails = async (pizzaId) => {
+    const query = new URLSearchParams({
+        where: `_id="${pizzaId}"`,
+        load: `creator=_ownerId:users`
+    });
+    //   const result = await libRequest.get(`${base_Url}/${pizzaId}`);
+    const result = await libRequest.get(`${base_Url}?${query}`)
+    console.log(result[0])
+    return result[0];
+}
+
+export const editPizzaById = async (pizzaId, pizzaData) => {
     const result = await libRequest.put(`${base_Url}/${pizzaId}`, pizzaData);
     return result;
 }
 
 
-export const deletePizza = async (pizzaId) =>{
+export const deletePizza = async (pizzaId) => {
     const result = await libRequest.remove(`${base_Url}/${pizzaId}`);
     return result;
 }

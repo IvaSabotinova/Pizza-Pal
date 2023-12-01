@@ -15,7 +15,9 @@ import CustomPizzaList from "./components/custom-pizza-list/CustomPizzaList";
 import CustomPizzaDetails from './components/custom-pizza-details/CustomPizzaDetails';
 import CustomPizzaEdit from "./components/custom-pizza-edit/CustomPizzaEdit";
 import Logout from "./components/logout/Logout";
-
+import AuthGuard from "./guards/AuthGuard";
+import NotFound from "./components/not-found/NotFound";
+import MyCustomPizzas from "./components/my-custom-pizzas/MyCustomPizzas";
 
 
 function App() {
@@ -28,11 +30,16 @@ function App() {
                 <Route path={Paths.About} element={<About />} />
                 <Route path={Paths.Register} element={<Register />} />
                 <Route path={Paths.Login} element={<Login />} />
-                <Route path={Paths.Logout} element={<Logout />} />
-                <Route path={Paths.CreatePizza} element={<CustomPizzaCreate />} />
                 <Route path={Paths.CustomPizzaList} element={<CustomPizzaList />} />
                 <Route path={Paths.CustomPizzaDetails} element={<CustomPizzaDetails />} />
-                <Route path={Paths.CustomPizzaEdit} element={<CustomPizzaEdit />} />
+
+                <Route element={<AuthGuard />}>
+                    <Route path={Paths.Logout} element={<Logout />} />
+                    <Route path={Paths.CreatePizza} element={<CustomPizzaCreate />} />
+                    <Route path={Paths.CustomPizzaEdit} element={<CustomPizzaEdit />} />
+                    <Route path={Paths.MyCustomPizzas} element={<MyCustomPizzas />} />
+                </Route>
+                <Route path={Paths.NotFound} element={<NotFound />} />
             </Routes>
             <Footer />
         </AuthProvider>

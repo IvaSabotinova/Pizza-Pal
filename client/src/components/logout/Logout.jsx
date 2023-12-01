@@ -12,8 +12,14 @@ export default function Logout() {
 
     useEffect(() => {
         userService.Logout()
-            .then(() => logOutHandler())
-            .catch(() => navigate(Paths.Home))
+            .then(() => {
+                logOutHandler();
+                navigate(Paths.Home);
+            })
+            .catch(() =>{
+                logOutHandler();
+                navigate(Paths.Home)
+            });
     }, []);
     
     return null;

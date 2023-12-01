@@ -3,11 +3,12 @@ import { NavLink, useLocation } from "react-router-dom";
 import Paths from "../../constants/Paths";
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
+import { pathToUrl } from "../../utils/pathUtil";
 
 export default function Header() {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
-    const { isAuthenticated } = useContext(AuthContext)
+    const { userId, isAuthenticated } = useContext(AuthContext)
 
 
     return (
@@ -61,7 +62,12 @@ export default function Header() {
                                                 <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.CreatePizza}>
                                                     Create Pizza
                                                 </NavLink>
-                                                </li>                                           
+                                            </li>
+                                            <li className="nav-item">
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={pathToUrl(Paths.MyCustomPizzas, {_ownerId: userId})}>
+                                                    My Pizzas
+                                                </NavLink>
+                                            </li>
                                             <li className="user_option">
                                                 <NavLink to="/logout" className="login_online">
                                                     Logout
@@ -69,7 +75,7 @@ export default function Header() {
                                             </li>
                                         </>
                                         )}
-                                     </ul>
+                                    </ul>
                                     {!isAuthenticated && <div className="user_option">
                                         <NavLink to="/register" className="login_online">
                                             Register
@@ -198,6 +204,11 @@ export default function Header() {
                                                 <li className="nav-item">
                                                     <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={Paths.CreatePizza}>
                                                         Create Pizza
+                                                    </NavLink>
+                                                </li>
+                                                <li className="nav-item">
+                                                    <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={pathToUrl(Paths.MyCustomPizzas, { _ownerId: userId })}>
+                                                        My Pizzas
                                                     </NavLink>
                                                 </li>
                                                 <li className="user_option">
