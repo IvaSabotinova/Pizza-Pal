@@ -14,8 +14,18 @@ const buildOptions = (data) => {
             ...options.headers,
             'X-Authorization': token
         }
-    }        
-      
+    }     
+
+
+    //  if(data?.email === 'admin@abv.bg'){
+    //     options.headers = {
+    //         ...options.headers,
+    //         'X-Authorization': token,
+    //         'x-admin': token
+
+    //     }
+    // }
+
     return options;
 }
 
