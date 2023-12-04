@@ -9,22 +9,28 @@ import Paths from '../../constants/Paths';
 import { pathToUrl } from '../../utils/pathUtil';
 import { formatDate } from '../../utils/dateUtil'
 import AuthContext from '../../contexts/AuthContext';
-import { formatDateTime } from '../../utils/dateUtil';
 
+import CustomPizzaComments from './custom-pizza-comments/CustomPizzaComments';
+
+const commentInitialValues = {
+    _id: '',
+    content: '',
+    pizzaId: '',
+    _ownerId: '',
+    creator: { username: '' }
+}
 
 export default function CustomPizzaDetails() {
-
     const { pizzaId } = useParams();
     const [pizza, setPizza] = useState({});
     const [shownButtons, setShownButtons] = useState(true);
     const [shownDelete, setShownDelete] = useState(false);
     const navigate = useNavigate();
-    const { userId, username } = useContext(AuthContext);
-    const [comment, setComment] = useState({
-        content: '',
-    });
-
+    const { userId, username, email } = useContext(AuthContext);
+    const [comment, setComment] = useState(commentInitialValues);
     const [comments, setComments] = useState([]);
+    const [editMode, setEditMode] = useState(false);
+
 
     useEffect(() => {
         customPizzaService.getPizzaDetails(pizzaId)
@@ -61,14 +67,37 @@ export default function CustomPizzaDetails() {
         setComment(state => ({ ...state, [e.target.name]: e.target.value }))
     }
 
-    const onSubmitCreateComment = async (e) => {
+    const onSubmitCreateUpdateComment = async (e) => {
         e.preventDefault();
 
-        const newComment = await commentsService.createComment(pizzaId, comment.content);
-        console.log(newComment)
-        newComment.creator = { username };
-        setComments(state => ([...state, newComment]))
-        setComment({ content: '' });
+        if (editMode) {
+            try {
+                const updatedComment = await commentsService.updateComment(comment._id, comment);
+                setComments(state => state.map(x => x._id === comment._id ? updatedComment : x));
+                setEditMode(false);
+                setComment(commentInitialValues);
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        else {
+            try {
+                const newComment = await commentsService.createComment(pizzaId, comment.content);
+                console.log(newComment)
+                newComment.creator = { username };
+                setComments(state => ([...state, newComment]))
+                setComment(commentInitialValues);
+            } catch (err) {
+                console.log(err)
+            }
+
+        }
+
+    }
+
+    const onEditContent = (editComment) => {
+        setEditMode(true);
+        setComment(editComment)
     }
 
     const imageSrc = pizza?.imageUrl ? pizza?.imageUrl : "../../images/pizzas/custom-pizza.png";
@@ -104,7 +133,7 @@ export default function CustomPizzaDetails() {
                             <span className='details-property'>Description:</span>
                             <span className='details-content'> {pizza.description}</span>
                         </p>
-                        {userId === pizza._ownerId && shownButtons && (
+                        {(userId === pizza._ownerId || email === 'admin@abv.bg') && shownButtons && (
                             <div className='buttons'>
                                 <Link to={pathToUrl(Paths.CustomPizzaEdit, { pizzaId })}> <button className="edit-button">Edit</button></Link>
                                 <button onClick={handleShowButtons} className="delete-button">Delete</button>
@@ -118,34 +147,14 @@ export default function CustomPizzaDetails() {
                     </div>
                 </section >
 
-
-                <section className='comments-section'>
-                    <div className="details-comments">
-                        <h2>Comments:</h2>
-                        <ul>
-                            {comments.map(({ _id, content, creator: { username }, _createdOn }) => (
-                                <li key={_id} className="comment">
-                                    <p>Username: {username}</p>
-                                    <p>{content}</p>
-                                    <p className='date'>{formatDateTime(_createdOn)}</p>
-                                </li>))}
-                        </ul>
-                        {comments.length === 0 && (<p className="no-comment">No comments yet.</p>)}
-                    </div>
-
-
-                    <article className="create-comment">
-                        <label>Add your comment:</label>
-                        <form className="form" onSubmit={onSubmitCreateComment}>
-                            <textarea name="content" cols="80" rows="5" value={comment.content} placeholder="Write your comment..." onChange={onChangeComment} ></textarea>
-                            <input className="btn submit" type="submit" value="Add Comment" />
-                        </form>
-                    </article>
-                </section>
-
+                < CustomPizzaComments
+                    comments={comments}
+                    onChangeComment={onChangeComment}
+                    onSubmitCreateUpdateComment={onSubmitCreateUpdateComment}
+                    comment={comment}
+                    onEditContent={onEditContent}
+                />
             </div>
-
-
         </>
     )
 };

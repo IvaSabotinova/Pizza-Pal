@@ -12,6 +12,16 @@ export const getCommentsByPizzaId = async (pizzaId) => {
         where: `pizzaId="${pizzaId}"`,
         load: `creator=_ownerId:users`,
     });
-    const result = await libRequest.get(`${base_Url}?${query}`);
+    const result = await libRequest.get(`${base_Url}?${query}`);   
+    return result;
+}
+
+export const getCommentById = async (commentId) =>{
+    const result = await libRequest.get(`${base_Url}/${commentId}`);
+    return result;
+}
+
+export const updateComment = async (commentId, comment) =>{
+    const result = await libRequest.patch(`${base_Url}/${commentId}`, comment);    
     return result;
 }

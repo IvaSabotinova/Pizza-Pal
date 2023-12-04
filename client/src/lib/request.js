@@ -5,27 +5,33 @@ const buildOptions = (data) => {
             'content-type': 'application/json'
         }
         options.body = JSON.stringify(data);
+
     }
 
-    const token = localStorage.getItem('accessToken');
+    // const token = localStorage.getItem('accessToken');
+
+    // if (token) {
+    //     options.headers = {
+    //         ...options.headers,
+    //         'X-Authorization': token
+    //     }
+    // }       
+
+    const token = JSON.parse(localStorage.getItem('auth'))?.accessToken;
 
     if (token) {
         options.headers = {
             ...options.headers,
             'X-Authorization': token
         }
-    }     
+    }
 
-
-    //  if(data?.email === 'admin@abv.bg'){
-    //     options.headers = {
-    //         ...options.headers,
-    //         'X-Authorization': token,
-    //         'x-admin': token
-
-    //     }
-    // }
-
+    if (JSON.parse(localStorage.getItem('auth'))?.email === 'admin@abv.bg') {
+        options.headers = {
+            ...options.headers,
+            'X-Admin': ""
+        }
+    }
     return options;
 }
 

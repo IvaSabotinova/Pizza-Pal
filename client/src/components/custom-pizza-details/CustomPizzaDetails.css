@@ -121,11 +121,47 @@
     margin-bottom: -10px;
 }
 
-.comment .date{
-    text-align: end;
+.comment .username{
+    padding-top: 6px;  
+}
+
+.comment .date{ 
     font-size: 13px;
 }
 
+.comment .buttons_date{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.comment .buttons_date .buttons{
+    margin-right: 10px;
+}
+
+.comment .buttons_date .buttons .edit{
+    margin-right: 10px;
+}
+
+.comment .buttons_date .buttons .edit,
+.comment .buttons_date .buttons .delete{
+    color: #fff;
+    background-color: #df8909;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.comment .buttons_date .buttons .delete{
+    background-color: #d9534f;
+}
+
+.details-comments .no-comment{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
 
 .create-comment {
     margin-top: 60px;

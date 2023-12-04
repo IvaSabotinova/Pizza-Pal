@@ -36,8 +36,8 @@ export default function Login() {
   }
 
   const validatePassword = () => {
-    if (formValues.password.length < 5) {
-      setErrors(state => ({ ...state, [LoginFormKeys.Password]: 'Password must be at least 5 characters!' }))
+    if (formValues.password.length < 6) {
+      setErrors(state => ({ ...state, [LoginFormKeys.Password]: 'Password must be at least 6 characters!' }))
     } else {
       setErrors(state => ({ ...state, [LoginFormKeys.Password]: '' }));
     }
@@ -54,13 +54,12 @@ export default function Login() {
 
     if (errors.email != ''
       || errors.password != ''
-      || Object.keys(formValues).some(key => formValues[key] === ''))
-      {
+      || Object.keys(formValues).some(key => formValues[key] === '')) {
 
       return;
     }
     try {
-     console.log(formValues)
+      console.log(formValues)
       loginSubmitHandler(formValues)
     } catch (err) {
       console.log(err)
@@ -88,7 +87,7 @@ export default function Login() {
                     name={LoginFormKeys.Email}
                     value={formValues.email}
                     onChange={changeHandler}
-                    onBlur={validateEmail} />                 
+                    onBlur={validateEmail} />
                   {errors.email && (<p className="errorMessage">{errors.email}</p>)}
                 </div>
                 <div >
@@ -99,8 +98,8 @@ export default function Login() {
                     name={LoginFormKeys.Password}
                     value={formValues.password}
                     onChange={changeHandler}
-                    onBlur={validatePassword} />                  
-                  {errors.password && (<p className="errorMessage">{errors.password}</p>)}            
+                    onBlur={validatePassword} />
+                  {errors.password && (<p className="errorMessage">{errors.password}</p>)}
                 </div>
 
                 <div className="btn_box offset-4">

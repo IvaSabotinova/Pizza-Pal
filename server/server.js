@@ -94,7 +94,7 @@
             // NOTE: the OPTIONS method results in undefined result and also it never processes plugins - keep this in mind
             if (method == 'OPTIONS') {
                 Object.assign(headers, {
-                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
                     'Access-Control-Allow-Credentials': false,
                     'Access-Control-Max-Age': '86400',
                     'Access-Control-Allow-Headers': 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, X-Authorization, X-Admin'
@@ -1333,8 +1333,13 @@
             "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
                 email: "admin@abv.bg",
                 username: "Admin",
-                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-            }
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            // "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+            //     email: "admin@abv.bg",
+            //     username: "Admin",
+            //     hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            // }
         },
         sessions: {
         }
@@ -1392,6 +1397,32 @@
                 basil: false,
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 _createdOn: 1701371429652
+            },
+            "8b1c0be9-dfc4-4d68-b1ae-07436e6566b1": {
+                _id: "8b1c0be9-dfc4-4d68-b1ae-07436e6566b1",
+                name: "Georginari",
+                size: "Jumbo - 12 slices",
+                ingredients: "dough, chicken, cheese, mozzarella, mushrooms, onions",
+                imageUrl: "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
+                description: "Spread the chicken pieces equally on the dough. Then add on top some cheese and mozzarella. Finally add some mushrooms and onions with quantities as per your preferences.",
+                dough: true,
+                pepperoni: false,
+                "smoked-ham": false,
+                bacon: false,
+                chicken: true,
+                cheese: true,
+                mozzarella: true,
+                mushrooms: true,
+                olives: false,
+                peppers: false,
+                "barbecue-sauce": false,
+                onions: true,
+                tomatoes: false,
+                "pesto-sauce": false,
+                cream: false,
+                basil: false,
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _createdOn: 1701608796480
             }
         },
         products: {
@@ -1670,6 +1701,45 @@
                 ]
             }
         },
+        comments: {
+            "74d57213-ae4f-415b-91c3-65b63e4c239a": {
+                _id: "74d57213-ae4f-415b-91c3-65b63e4c239a",
+                content: "I tried this one and loved it!!!",
+                creator: { 
+                    _id: "847ec027-f659-4086-8032-5173e2f9c93a",
+                    username: "George",
+                    email: "george@abv.bg"
+                },
+                pizzaId: "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b",                              
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _createdOn: 1701610649808
+            },
+            "6c2f8a7b-35b1-45f8-bfb2-96286564b718": {
+                _id: "6c2f8a7b-35b1-45f8-bfb2-96286564b718",
+                content: "I made that one for my family yesterday and we all liked it so much!!!",
+                creator: { 
+                    _id: "847ec027-f659-4086-8032-5173e2f9c93a",
+                    username: "George",
+                    email: "george@abv.bg"
+                },
+                pizzaId: "3223760d-5da6-4e6d-b63e-b9a3ada7ce83",                              
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                _createdOn: 1701611259367
+            },
+            "16c91d5c-c16a-4a60-8aed-62a116986ae0": {
+                _id: "16c91d5c-c16a-4a60-8aed-62a116986ae0",
+                content: "I would highly recommend this pizza to all my friends!",
+                creator: { 
+                    _id: "35c62d76-8152-4626-8712-eeb96381bea8",
+                    username: "Peter",
+                    email: "peter@abv.bg"
+                },
+                pizzaId: "8b1c0be9-dfc4-4d68-b1ae-07436e6566b1",                              
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                _createdOn: 1701611716744
+            }
+
+        },
         recipes: {
             "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1722,7 +1792,7 @@
                 ],
                 _createdOn: 1613551388703
             }
-        },     
+        },
         records: {
             i01: {
                 name: "John1",

@@ -15,9 +15,9 @@ export const getAll = async () => {
 
 export const getAllByOwnerId = async (ownerId) =>{
     const query = new URLSearchParams({
-        where: `_ownerId="${ownerId}"`,
-        //load: `creator=_ownerId:users`
+        where: `_ownerId="${ownerId}"`,       
     });
+    
     const result = await libRequest.get(`${base_Url}?${query}`);
     console.log(result);
     return result;
@@ -29,9 +29,8 @@ export const getPizzaDetails = async (pizzaId) => {
         where: `_id="${pizzaId}"`,
         load: `creator=_ownerId:users`
     });
-    //   const result = await libRequest.get(`${base_Url}/${pizzaId}`);
-    const result = await libRequest.get(`${base_Url}?${query}`)
-  //  console.log(result[0])
+
+    const result = await libRequest.get(`${base_Url}?${query}`);
     return result[0];
 }
 
