@@ -8,12 +8,17 @@ import AuthContext from '../../../contexts/AuthContext';
 
 export default function SingleComment({
     comment,
-    onEditContent
+    onEditContent,
+    onDeleteComment
 }) {
-    const { userId } = useContext(AuthContext);
+    const { userId, email } = useContext(AuthContext);
 
     const onClickEdit = () => {
         onEditContent(comment)
+    }
+
+    const onClickDelete = ()=>{
+        onDeleteComment(comment._id, comment.creator.username);
     }
     return (
         <li className="comment">
@@ -21,9 +26,9 @@ export default function SingleComment({
             <p>{comment.content}</p>
             <div className='buttons_date'>
                 <p className='date'>{formatDateTime(comment._createdOn)}</p>
-                {userId === comment._ownerId && <div className='buttons'>
+                {(userId === comment._ownerId || email === 'admin@abv.bg')  && <div className='buttons'>
                     <button className='edit' onClick={onClickEdit} >Edit</button>
-                    <button className='delete'>Delete</button>
+                    <button className='delete' onClick={onClickDelete}>Delete</button>
                 </div>}
             </div>
         </li>

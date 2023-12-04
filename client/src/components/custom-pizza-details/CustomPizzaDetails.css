@@ -204,5 +204,12 @@
     background-color: #e69c00;
 }
 
+.create-comment .errorMessage{
+    color: red;
+    font-size: 0.8em;
+    margin: 10px 0;
+  } 
+  
+
 
 

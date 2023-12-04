@@ -9,6 +9,9 @@ export default function CustomPizzaComments({
     onSubmitCreateUpdateComment,
     comment,
     onEditContent,
+    error,
+    validateComment,
+    onDeleteComment
 }) {
 
     return (
@@ -21,6 +24,7 @@ export default function CustomPizzaComments({
                             key={x._id}
                             comment={x}
                             onEditContent={onEditContent}
+                            onDeleteComment={onDeleteComment}
                         />
                     ))}
                 </ul>
@@ -30,7 +34,12 @@ export default function CustomPizzaComments({
             <article className="create-comment">
                 <label>Add your comment:</label>
                 <form className="form" onSubmit={onSubmitCreateUpdateComment}>
-                    <textarea name="content" cols="80" rows="5" value={comment.content} placeholder="Write your comment..." onChange={onChangeComment} ></textarea>
+                    <textarea name="content" cols="80" rows="5" placeholder="Write your comment..."
+                        value={comment.content}
+                        onChange={onChangeComment}
+                        onBlur={validateComment}
+                    ></textarea>
+                    {error !== '' && <p className="errorMessage">{error}</p>}
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
             </article>

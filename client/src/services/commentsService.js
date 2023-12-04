@@ -25,3 +25,8 @@ export const updateComment = async (commentId, comment) =>{
     const result = await libRequest.patch(`${base_Url}/${commentId}`, comment);    
     return result;
 }
+
+export const deleteComment = async (commentId) =>{
+    const result = await libRequest.remove(`${base_Url}/${commentId}`);
+    return result;
+}

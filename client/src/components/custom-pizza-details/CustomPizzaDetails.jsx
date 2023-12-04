@@ -30,6 +30,7 @@ export default function CustomPizzaDetails() {
     const [comment, setComment] = useState(commentInitialValues);
     const [comments, setComments] = useState([]);
     const [editMode, setEditMode] = useState(false);
+    const [commentError, setCommentError] = useState('')
 
 
     useEffect(() => {
@@ -63,13 +64,27 @@ export default function CustomPizzaDetails() {
         }
     }
 
+    const validateComment = () => {
+        const trimmedContent = comment.content.trim();
+        if (trimmedContent.length < 2 || trimmedContent.length > 500) {
+            setCommentError('Comment should be between 2 and 500 characters!')
+        }
+        else {
+            setCommentError('')
+        }
+    }
+
     const onChangeComment = (e) => {
         setComment(state => ({ ...state, [e.target.name]: e.target.value }))
     }
 
     const onSubmitCreateUpdateComment = async (e) => {
         e.preventDefault();
-
+        validateComment();
+        if (commentError !== '' || comment.content == '') {
+           // console.log(commentError.content)
+            return;
+        }
         if (editMode) {
             try {
                 const updatedComment = await commentsService.updateComment(comment._id, comment);
@@ -98,6 +113,14 @@ export default function CustomPizzaDetails() {
     const onEditContent = (editComment) => {
         setEditMode(true);
         setComment(editComment)
+    }
+
+    const deleteComment = async (commendId, commentCreator) =>{
+        const hasConfirmed = confirm(`Are you sure you want to delete comment of user: ${commentCreator}?`);
+        if (hasConfirmed){
+            await commentsService.deleteComment(commendId);
+            setComments(state => (state.filter(x=>x._id !== commendId)))
+        }
     }
 
     const imageSrc = pizza?.imageUrl ? pizza?.imageUrl : "../../images/pizzas/custom-pizza.png";
@@ -153,6 +176,9 @@ export default function CustomPizzaDetails() {
                     onSubmitCreateUpdateComment={onSubmitCreateUpdateComment}
                     comment={comment}
                     onEditContent={onEditContent}
+                    error={commentError}
+                    validateComment={validateComment}
+                    onDeleteComment={deleteComment}
                 />
             </div>
         </>
