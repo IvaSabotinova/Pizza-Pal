@@ -156,7 +156,7 @@ export default function CustomPizzaEdit() {
         <section className="edit-pizza_section pizza_layout_padding">
             <div className="container">
                 <div className="heading_container">
-                    <h2 className="text-center mx-auto">Edit Your Pizza {pizza.name}</h2>
+                    <h2 className="text-center mx-auto">Edit Pizza {pizza.name}</h2>
                 </div>
                 <div className="row">
                     <div className="col-md-8 offset-lg-1">

@@ -1,3 +1,8 @@
+import { Link } from 'react-router-dom';
+
+import Paths from '../../constants/Paths';
+import { pathToUrl } from '../../utils/pathUtil';
+
 const Product = ({
     _id,
     type,
@@ -22,14 +27,16 @@ const Product = ({
                             <p>{ingredients}</p>
                             <div className="options">
                                 <h6>BGN{price[0].toFixed(2)}</h6>
-                                <button style={{
-                                    backgroundColor: '#ffbe33',
-                                    color: '#ffffff',                               
-                                    marginLeft: '150px',
-                                    borderRadius: '20px',
-                                    padding: '8px 17px',
-                                    border: 'none',
-                                }}>{buttonText}</button>
+                                <Link to={buttonText === 'Proceed' ? Paths.CreatePizza : pathToUrl(Paths.ProductDetails, {productId: _id})}>
+                                    <button style={{
+                                        backgroundColor: '#ffbe33',
+                                        color: '#ffffff',
+                                        marginLeft: '150px',
+                                        borderRadius: '20px',
+                                        padding: '8px 17px',
+                                        border: 'none',
+                                    }}>{buttonText}</button>
+                                </Link>
                                 {/* <a href="">
                                     <svg
                                         version="1.1"

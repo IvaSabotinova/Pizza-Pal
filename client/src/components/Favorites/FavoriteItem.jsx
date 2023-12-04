@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+
+import Paths from '../../constants/Paths';
 import { pathToUrl } from '../../utils/pathUtil';
 
 const FavoriteItem = ({
@@ -10,6 +12,7 @@ const FavoriteItem = ({
     imageUrl,
     price,
 }) => {
+    const buttonText = name === 'Make Your Custom Pizza' ? 'Proceed' : 'Details';
     return (
         <div className="col-sm-6 col-lg-4 all pizza">
             <div className="box">
@@ -21,18 +24,19 @@ const FavoriteItem = ({
                         <h5>{name}</h5>
                         <div className="options">
                             <h6>BGN{price[0].toFixed(2)}</h6>
-                            <Link><button style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                backgroundColor: '#ffbe33',
-                                color: '#ffffff',
-                                // marginRight: '10px',
-                                marginLeft: '150px',
-                                borderRadius: '20px',
-                                padding: '8px 17px',
-                                border: 'none',
-                            }} >Details
-                            </button></Link>
+                            <Link to={buttonText === 'Proceed' ? Paths.CreatePizza : pathToUrl(Paths.ProductDetails, { productId: _id })}>
+                                <button style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    backgroundColor: '#ffbe33',
+                                    color: '#ffffff',
+                                    // marginRight: '10px',
+                                    marginLeft: '150px',
+                                    borderRadius: '20px',
+                                    padding: '8px 17px',
+                                    border: 'none',
+                                }} >{buttonText}</button>
+                            </Link>
                             {/* <a href="">
                             <svg
                                 version="1.1"

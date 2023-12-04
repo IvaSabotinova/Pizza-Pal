@@ -32,6 +32,7 @@ export const getPizzaDetails = async (pizzaId) => {
 
     const result = await libRequest.get(`${base_Url}?${query}`);
     return result[0];
+  
 }
 
 export const editPizzaById = async (pizzaId, pizzaData) => {

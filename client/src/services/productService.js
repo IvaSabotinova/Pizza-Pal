@@ -7,3 +7,8 @@ export const getAll = async () => {
     return result;
 }
 
+export const getProductById = async (productId) => {
+    const result = await libRequest.get(`${base_Url}/${productId}`);
+    console.log(result)
+    return result;
+}
