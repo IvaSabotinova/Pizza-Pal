@@ -10,7 +10,7 @@ export default function ProductDetails() {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const { email } = useContext(AuthContext);
-    const [selectedSize, setSelectedSize] = useState(0);
+    const [selectedSize, setSelectedSize] = useState("Medium - 6 slices");
 
     useEffect(() => {
         productService.getProductById(productId)
@@ -53,7 +53,7 @@ export default function ProductDetails() {
                     {product.type !== 'pizza' &&
                         <p>
                             <span className='details-property'>Price:</span>
-                            <span className='details-content'> BGN {product?.price?.[0].toFixed(2)}</span>
+                            <span className='details-content'> BGN {product.price?.toFixed(2)}</span>
                         </p>}
                     {/* {product.type === 'pizza' &&
                         <p>
@@ -71,25 +71,26 @@ export default function ProductDetails() {
                             </p>
                             <div className='size-container'>
                                 <span className='details-property'>Choose size:</span>
-                                <p className='empty-line'></p>
-                                {product.size.map((sizeOption, index) => (
-                                    <span key={index}
-                                        className={`pizza-details-content ${selectedSize === index ? 'selected' : ''}`}
-                                        onClick={() => handleSizeChange(index)}>
-                                        {sizeOption}
-                                    </span>
-                                ))}
+                                <div className='changing-buttons'>
+                                    {Object.keys(product.price).map((key) => (
+                                        <span key={key}
+                                            className={`size-details-content ${selectedSize === key ? 'selected' : ''}`}
+                                            onClick={() => handleSizeChange(key)}>
+                                            {key}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </>
                     )}
 
                     {email === 'admin@abv.bg' && (
-                        <div className='buttons'>
+                        <div className='admin-buttons'>
                             {/* <Link to={pathToUrl(Paths.CustomPizzaEdit, { pizzaId })}>  */}
-                            <button className="edit-button">Edit</button>
+                            <button className="edit-admin">Edit</button>
                             {/* </Link> */}
                             {/* <button onClick={handleShowButtons} className="delete-button">Delete</button> */}
-                            <button className="delete-button">Delete</button>
+                            <button className="delete-admin">Delete</button>
                         </div>)}
 
                     {/* {shownDelete && <div>

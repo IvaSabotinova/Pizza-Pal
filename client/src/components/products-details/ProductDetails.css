@@ -17,18 +17,8 @@
     display: flex;
     justify-content: center;
     gap: 60px;
+    margin: 0px 10%;
 }
-
-/* .details-wrapper {
-    position: relative;
-    height: 80vh;
-    padding: 1% 1%;
-    margin: 2% auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-} */
 
 .details-img {
     width: 500px;
@@ -40,13 +30,9 @@
 }
 
 .product-info {
-    /* height: 420px;  */
     display: flex;
     flex-direction: column;
-    /* gap: 2px; */
     justify-content: center;
-    /* max-width: 50%; */
-    /* padding: 0 20px; */
     overflow: auto;
 }
 
@@ -58,7 +44,7 @@
     margin-top: 10px;
 }
 
-.product-info .details-property {    
+.product-info .details-property {
     font-size: 18px;
     font-weight: 600;
     color: #6e120f;
@@ -73,32 +59,38 @@
     font-weight: bold;
 }
 
-.size-container .empty-line{
-    margin: 30px 0;
+.size-container .changing-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0;
 }
 
-.pizza-details-content { 
+.size-details-content {
     font-size: 15px;
     margin-right: 30px;
     padding: 5px 10px;
     border-radius: 15px;
     background-color: rgb(237, 227, 225);
-    color:  #6e120f;;
-    border: 1px solid #6e120f;;   
+    color: #6e120f;
+    border: 1px solid #6e120f;
     cursor: pointer;
 }
 
-.pizza-details-content.selected{
+.size-details-content.selected {
     color: rgb(237, 227, 225);
-    background-color:  #6e120f;
+    background-color: #6e120f;
 }
 
+.product-info .admin-buttons {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+}
 
-/* .edit-button,
-.delete-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 10px;
+.edit-admin,
+.delete-admin {
+    padding: 5px 10px;
+    margin-top: 30px;
     color: #fff;
     background-color: #ffbe33;
     border: none;
@@ -106,12 +98,11 @@
     cursor: pointer;
 }
 
-.delete-button {
+.delete-admin {
     background-color: #d9534f;
-    margin-left: 10px;
 }
 
-.confirm-delete,
+/* .confirm-delete,
 .not-confirm-delete {
     display: inline-block;
     padding: 10px 20px;
@@ -121,15 +112,15 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
-.confirm-delete {
+/* .confirm-delete {
     background-color: #d9534f;
     margin-right: 30px;
-}
+} */
 
-.confirm-deletion {
+/* .confirm-deletion {
     font-weight: bold;
     font-size: large;
     color: #cf1e18;
-} */
+}  */

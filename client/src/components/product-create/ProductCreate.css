@@ -1,0 +1,73 @@
+.create-product_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .create-product_section .heading_container {
+    margin-bottom: 15px;
+    padding-top: 20px;
+  }
+
+  .pizza-sizes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* width: 75%; */
+  }
+
+  .pizza-size-01,
+  .pizza-size-02,
+  .pizza-size-03{
+    display: flex;
+    flex-direction: column;
+  }
+  .pizza-size-01 input,
+  .pizza-size-02 input,
+  .pizza-size-03 input{    
+    width: 60%;
+    border: 3px solid #ffbe33;
+    height: 35px;
+    color: #000000;
+    border-radius: 10px;
+  } 
+
+
+  
+  .create-product_section .form_container .form-control {
+    width: 80%;
+    border: 3px solid #ffbe33;
+    height: 50px;
+    margin-bottom: 15px;
+    color: #000000;
+    border-radius: 10px;
+  }
+
+
+   
+  .create-product_section .form_container .heading_label{
+    /* font-family: 'Dancing Script', cursive; */
+    font-size: 20px;
+  }
+  
+  .create-product_section .form_container button {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    background-color: #ffbe33;
+    color: #ffffff;
+    padding: 10px 55px;
+    border: none;
+    border-radius: 45px;
+  }
+  
+  .create-product_section .form_container button:hover {
+    background-color: #e69c00;
+  }
+  
+  /* .create-product_section .errorMessage{
+    color: red;
+    font-size: 0.8em;
+    margin: 0 0 10px;
+  } */

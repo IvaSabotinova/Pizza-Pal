@@ -833,7 +833,7 @@
     function createInstance(seedData = {}) {
         const collections = new Map();
 
-        // Initialize seed data from file    
+        // Initialize seed data from file
         for (let collectionName in seedData) {
             if (seedData.hasOwnProperty(collectionName)) {
                 const collection = new Map();
@@ -1286,7 +1286,7 @@
                     propRules = ruleOrDefault(propRules, getPropRule(allPropRules, action));
                 }
 
-                // Rules by record id 
+                // Rules by record id
                 const recordRules = collectionRules[data._id];
                 if (recordRules !== undefined) {
                     currentRule = ruleOrDefault(currentRule, recordRules[action]);
@@ -1431,310 +1431,368 @@
                 type: "pizza",
                 name: "Make Your Custom Pizza",
                 ingredients: "Create your own pizza! Choose your size, base, and add any topping combination you wish!",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/custom-pizza.png",
-                price: [
-                    6.50,
-                    8.50,
-                    10.50
-                ]
+                // price: [
+                //     6.50,
+                //     8.50,
+                //     10.50
+                // ]
+                price: {
+                    "Medium - 6 slices": 6.50,
+                    "Large - 8 slices": 8.50,
+                    "Jumbo - 12 slices": 10.50
+                }
             },
             "aa6ce88a-df75-4054-ab52-3a0a73e3c912": {
                 _id: "aa6ce88a-df75-4054-ab52-3a0a73e3c912",
                 type: "pizza",
                 name: "Pizza Margarita",
                 ingredients: "Thin Italian style dough, cream cheese, extra mozzarella, tomato sauce",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/margarita.png",
-                price: [
-                    11.90,
-                    14.00,
-                    15.40
-                ]
+                // price: [
+                //     11.90,
+                //     14.00,
+                //     15.40
+                // ]
+                price: {
+                    "Medium - 6 slices": 11.90,
+                    "Large - 8 slices": 14.00,
+                    "Jumbo - 12 slices": 15.40
+                }
             },
             "af316065-2287-4998-8ae0-d23c2f31212c": {
                 _id: "af316065-2287-4998-8ae0-d23c2f31212c",
                 type: "pizza",
                 name: "Pepperoni Classic",
                 ingredients: "Hand-tossed dough, tomato sauce, extra mozzarella, extra pepperoni",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/pepperoni.png",
-                price: [
-                    15.90,
-                    17.90,
-                    19.90
-                ]
+                // price: [
+                //     15.90,
+                //     17.90,
+                //     19.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 15.90,
+                    "Large - 8 slices": 17.90,
+                    "Jumbo - 12 slices": 19.90
+                }
             },
             "e6f8a9ab-c1fb-4eff-863e-209a8094da1b": {
                 _id: "e6f8a9ab-c1fb-4eff-863e-209a8094da1b",
                 type: "pizza",
                 name: "American Hot",
                 ingredients: "Thin Italian style dough with mozzarella stuffed crust, tomato sauce, mozzarella, pepperoni, spicy jalapeno peppers, onions",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/american-hot.png",
-                price: [
-                    14.90,
-                    16.90,
-                    18.90
-                ]
+                // price: [
+                //     14.90,
+                //     16.90,
+                //     18.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 14.90,
+                    "Large - 8 slices": 16.90,
+                    "Jumbo - 12 slices": 18.90
+                }
             },
             "613a4d4e-7bd3-40b7-b3e5-69554359f4a9": {
                 _id: "613a4d4e-7bd3-40b7-b3e5-69554359f4a9",
                 type: "pizza",
                 name: "Garden Classic",
                 ingredients: "Hand-tossed dough, tomato sauce, mozzarella, olives, fresh green peppers, onions, mushrooms, fresh tomatoes",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/garden-classic.png",
-                price: [
-                    12.90,
-                    14.90,
-                    16.90
-                ]
+                // price: [
+                //     12.90,
+                //     14.90,
+                //     16.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 12.90,
+                    "Large - 8 slices": 14.90,
+                    "Jumbo - 12 slices": 16.90
+                }
             },
             "3dd88e1d-2e7d-46d8-b6db-ed5d96bd50c7": {
                 _id: "3dd88e1d-2e7d-46d8-b6db-ed5d96bd50c7",
                 type: "pizza",
                 name: "Hawaiian Pizza",
                 ingredients: "Tomato sauce, mozzarella, smoked ham, pineapple",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/hawaiian.png",
-                price: [
-                    12.90,
-                    14.90,
-                    16.90
-                ]
+                // price: [
+                //     12.90,
+                //     14.90,
+                //     16.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 12.90,
+                    "Large - 8 slices": 14.90,
+                    "Jumbo - 12 slices": 16.90
+                }
             },
             "0a96be75-4f2a-4921-b0af-df8d48de1c2e": {
                 _id: "0a96be75-4f2a-4921-b0af-df8d48de1c2e",
                 type: "pizza",
                 name: "BBQ Chicken Pizza",
                 ingredients: "Tender chicken breast, mozzarella, barbecue sauce, bacon, red onions, tomato",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/bbq-chicken.png",
-                price: [
-                    14.90,
-                    16.90,
-                    18.90
-                ]
+                // price: [
+                //     14.90,
+                //     16.90,
+                //     18.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 14.90,
+                    "Large - 8 slices": 16.90,
+                    "Jumbo - 12 slices": 18.90
+                }
             },
             "e77d8c6b-8183-494c-bfac-121138e633c4": {
                 _id: "e77d8c6b-8183-494c-bfac-121138e633c4",
                 type: "pizza",
                 name: "Carbonara",
                 ingredients: "Fresh cream, mozzarella, bacon, mushrooms",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/carbonara.png",
-                price: [
-                    13.90,
-                    15.90,
-                    17.90
-                ]
+                // price: [
+                //     13.90,
+                //     15.90,
+                //     17.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 13.90,
+                    "Large - 8 slices": 15.90,
+                    "Jumbo - 12 slices": 17.90
+                }
             },
             "0dfc07fd-98f0-4334-8530-f2be6fa4c74d": {
                 _id: "0dfc07fd-98f0-4334-8530-f2be6fa4c74d",
                 type: "pizza",
                 name: "Italian Classic",
                 ingredients: "Tomato sauce, mozzarella, pesto sauce, Grano Padano, fresh tomatoes, basil",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/italian-classic.png",
-                price: [
-                    13.90,
-                    15.90,
-                    17.90
-                ]
+                // price: [
+                //     13.90,
+                //     15.90,
+                //     17.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 13.90,
+                    "Large - 8 slices": 15.90,
+                    "Jumbo - 12 slices": 17.90
+                }
             },
             "77d94890-3c96-4ab9-a853-a57161a194c0": {
                 _id: "77d94890-3c96-4ab9-a853-a57161a194c0",
                 type: "pizza",
                 name: "Extravaganza",
                 ingredients: "Mozzarella, tomato sauce, smoked ham, pepperoni, onion, fresh green papers, fresh mushrooms, black olives",
-                size: [
-                    "Medium - 6 slices",
-                    "Large - 8 slices",
-                    "Jumbo - 12 slices"
-                ],
+                // size: [
+                //     "Medium - 6 slices",
+                //     "Large - 8 slices",
+                //     "Jumbo - 12 slices"
+                // ],
                 imageUrl: "pizzas/extravaganza.png",
-                price: [
-                    15.90,
-                    17.90,
-                    19.90
-                ]
+                // price: [
+                //     15.90,
+                //     17.90,
+                //     19.90
+                // ]
+                price: {
+                    "Medium - 6 slices": 15.90,
+                    "Large - 8 slices": 17.90,
+                    "Jumbo - 12 slices": 19.90
+                }
             },
             "ebb8253c-db91-480d-a461-60541c781165": {
                 _id: "ebb8253c-db91-480d-a461-60541c781165",
                 type: "starter",
                 name: "Cheesy Bread",
                 ingredients: "Freshly baked, topped with mozzarella and the special Domino's seasoning, served with tomato dip",
-                size: [
-                    ""
-                ],
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "starters/cheesy-bread.png",
-                price: [
-                    4.50
-                ]
+                // price: [
+                //     4.50
+                // ]
+                price: 4.50
             },
             "8bfd089a-cf3a-452d-b373-1724b9a7424e": {
                 _id: "8bfd089a-cf3a-452d-b373-1724b9a7424e",
                 type: "starter",
                 name: "Mozzarella Sticks",
                 ingredients: "five crispy mozzarella sticks with BBQ dip",
-                size: [
-                    ""
-                ],
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "starters/mozzarella-sticks.png",
-                price: [
-                    7.50
-                ]
+                // price: [
+                //     7.50
+                // ]
+                price: 7.50
             },
             "bddedc81-8ea0-42a2-9a56-efe28afd84f5": {
                 _id: "bddedc81-8ea0-42a2-9a56-efe28afd84f5",
                 type: "dessert",
                 name: "Chocolate Souffle",
                 ingredients: "Chocolate lava cake filled with melted warm chocolate",
-                size: [
-                    ""
-                ],
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "desserts/chocolate-souffle.png",
-                price: [
-                    5.90
-                ]
+                // price: [
+                //     5.90
+                // ]
+                price: 5.90
             },
             "331d4499-ce48-4e12-9550-6d4d6ade2424": {
                 _id: "331d4499-ce48-4e12-9550-6d4d6ade2424",
                 type: "dessert",
                 name: "Brownie Bites",
                 ingredients: "Chocolate brownie with white chocolate chips",
-                size: [
-                    ""
-                ],
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "desserts/brownie-bites.png",
-                price: [
-                    3.90
-                ]
+                // price: [
+                //     3.90
+                // ]
+                price: 3.90
             },
             "3985f63e-6c7f-436e-b8bd-20316bcc9087": {
                 _id: "3985f63e-6c7f-436e-b8bd-20316bcc9087",
                 type: "dessert",
                 name: "Choco Pie with Nutella",
                 ingredients: "Freshly oven baked puff pastry filled with Nutella spread and sprinkled with icing sugar",
-                size: [
-                    ""
-                ],
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "desserts/choco-pie.png",
-                price: [
-                    6.90
-                ]
+                // price: [
+                //     6.90
+                // ]
+                price: 6.90
             },
             "c948b627-d101-4a4b-ad3c-cea9815c7a0c": {
                 _id: "c948b627-d101-4a4b-ad3c-cea9815c7a0c",
                 type: "drink",
                 name: "Coca-cola",
-                ingredients: "",
-                size: [
-                    ""
-                ],
+                // ingredients: "",
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "drinks/coca-cola.png",
-                price: [
-                    2.60
-                ]
+                // price: [
+                //     2.60
+                // ]
+                price: 2.60
             },
             "298e0f67-9bdf-4b51-80db-2edf50c08c83": {
                 _id: "298e0f67-9bdf-4b51-80db-2edf50c08c83",
                 type: "drink",
                 name: "Fuze Tea",
-                ingredients: "",
-                size: [
-                    ""
-                ],
+                // ingredients: "",
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "drinks/fuze-tea.png",
-                price: [
-                    2.50
-                ]
+                // price: [
+                //     2.50
+                // ]
+                price: 2.50
             },
             "93be3bbd-43c5-46a8-b56f-809fa29f09bf": {
                 _id: "93be3bbd-43c5-46a8-b56f-809fa29f09bf",
                 type: "drink",
                 name: "Bottled Water",
-                ingredients: "",
-                size: [
-                    ""
-                ],
+                // ingredients: "",
+                // size: [
+                //     ""
+                // ],
                 imageUrl: "drinks/bottled-water.jpg",
-                price: [
-                    2.50
-                ]
+                // price: [
+                //     2.50
+                // ]
+                price: 2.50
             }
         },
         comments: {
             "74d57213-ae4f-415b-91c3-65b63e4c239a": {
                 _id: "74d57213-ae4f-415b-91c3-65b63e4c239a",
                 content: "I tried this one and loved it!!!",
-                creator: { 
+                creator: {
                     _id: "847ec027-f659-4086-8032-5173e2f9c93a",
                     username: "George",
                     email: "george@abv.bg"
                 },
-                pizzaId: "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b",                              
+                pizzaId: "4d0ce367-8dbe-4450-bd3d-8fdf87e86a3b",
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 _createdOn: 1701610649808
             },
             "6c2f8a7b-35b1-45f8-bfb2-96286564b718": {
                 _id: "6c2f8a7b-35b1-45f8-bfb2-96286564b718",
                 content: "I made that one for my family yesterday and we all liked it so much!!!",
-                creator: { 
+                creator: {
                     _id: "847ec027-f659-4086-8032-5173e2f9c93a",
                     username: "George",
                     email: "george@abv.bg"
                 },
-                pizzaId: "3223760d-5da6-4e6d-b63e-b9a3ada7ce83",                              
+                pizzaId: "3223760d-5da6-4e6d-b63e-b9a3ada7ce83",
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 _createdOn: 1701611259367
             },
             "16c91d5c-c16a-4a60-8aed-62a116986ae0": {
                 _id: "16c91d5c-c16a-4a60-8aed-62a116986ae0",
                 content: "I would highly recommend this pizza to all my friends!",
-                creator: { 
+                creator: {
                     _id: "35c62d76-8152-4626-8712-eeb96381bea8",
                     username: "Peter",
                     email: "peter@abv.bg"
                 },
-                pizzaId: "8b1c0be9-dfc4-4d68-b1ae-07436e6566b1",                              
+                pizzaId: "8b1c0be9-dfc4-4d68-b1ae-07436e6566b1",
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 _createdOn: 1701611716744
             }

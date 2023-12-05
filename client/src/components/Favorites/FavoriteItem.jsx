@@ -7,8 +7,7 @@ const FavoriteItem = ({
     _id,
     type,
     name,
-    ingredients,
-    size,
+    ingredients,    
     imageUrl,
     price,
 }) => {
@@ -23,7 +22,7 @@ const FavoriteItem = ({
                     <div className="detail-box">
                         <h5>{name}</h5>
                         <div className="options">
-                            <h6>BGN{price[0].toFixed(2)}</h6>
+                            <h6>BGN{type === 'pizza' ? price["Medium - 6 slices"].toFixed(2) : price.toFixed(2)}</h6>
                             <Link to={buttonText === 'Proceed' ? Paths.CreatePizza : pathToUrl(Paths.ProductDetails, { productId: _id })}>
                                 <button style={{
                                     display: 'flex',

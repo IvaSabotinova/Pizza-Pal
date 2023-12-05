@@ -19,6 +19,7 @@ import AuthGuard from "./guards/AuthGuard";
 import NotFound from "./components/not-found/NotFound";
 import MyCustomPizzas from "./components/my-custom-pizzas/MyCustomPizzas";
 import ProductDetails from "./components/products-details/ProductDetails";
+import ProductCreate from "./components/product-create/ProductCreate";
 
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
                 <Route path={Paths.Login} element={<Login />} />
                 <Route path={Paths.CustomPizzaList} element={<CustomPizzaList />} />
                 <Route path={Paths.CustomPizzaDetails} element={<CustomPizzaDetails />} />
-                <Route path={Paths.ProductDetails} element={<ProductDetails/>}/>
+                <Route path={Paths.ProductCreate} element={<ProductCreate />} />
+                <Route path={Paths.ProductDetails} element={<ProductDetails />} />
 
                 <Route element={<AuthGuard />}>
                     <Route path={Paths.Logout} element={<Logout />} />

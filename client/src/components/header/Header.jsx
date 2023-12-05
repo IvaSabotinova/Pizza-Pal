@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, Link } from "react-router-dom";
 
 import Paths from "../../constants/Paths";
 import { useContext } from "react";
@@ -8,7 +8,7 @@ import { pathToUrl } from "../../utils/pathUtil";
 export default function Header() {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
-    const { userId, isAuthenticated } = useContext(AuthContext)
+    const { userId, email, isAuthenticated } = useContext(AuthContext)
 
 
     return (
@@ -21,9 +21,14 @@ export default function Header() {
                     <header className="header_section">
                         <div className="container">
                             <nav className="navbar navbar-expand-lg custom_nav-container ">
-                                <a className="navbar-brand" href="">
-                                    <span>Pizza Pal</span>
-                                </a>
+                                {email !== 'admin@abv.bg' &&
+                                    <Link className="navbar-brand">
+                                        <span>Pizza Pal</span>
+                                    </Link>}
+                                {email === 'admin@abv.bg' &&
+                                    <Link to={Paths.ProductCreate} className="navbar-brand">
+                                        <span>Admin Area</span>
+                                    </Link>}
                                 <button
                                     className="navbar-toggler"
                                     type="button"
@@ -64,7 +69,7 @@ export default function Header() {
                                                 </NavLink>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={pathToUrl(Paths.MyCustomPizzas, {_ownerId: userId})}>
+                                                <NavLink style={({ isActive }) => isActive ? { color: '#ffbe33' } : { color: '#ffffff' }} className="nav-link" to={pathToUrl(Paths.MyCustomPizzas, { _ownerId: userId })}>
                                                     My Pizzas
                                                 </NavLink>
                                             </li>
@@ -174,11 +179,14 @@ export default function Header() {
                         <header className="header_section">
                             <div className="container">
                                 <nav className="navbar navbar-expand-lg custom_nav-container ">
-                                    <a className="navbar-brand" href="">
-                                        <span>
-                                            Pizza Pal
-                                        </span>
-                                    </a>
+                                    {email !== 'admin@abv.bg' &&
+                                        <Link className="navbar-brand">
+                                            <span>Pizza Pal</span>
+                                        </Link>}
+                                    {email === 'admin@abv.bg' &&
+                                        <Link to={Paths.ProductCreate} className="navbar-brand">
+                                            <span>Admin Area</span>
+                                        </Link>}
 
                                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span className=""> </span>
