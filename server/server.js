@@ -1446,7 +1446,9 @@
                     "Medium - 6 slices": 6.50,
                     "Large - 8 slices": 8.50,
                     "Jumbo - 12 slices": 10.50
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811780632
             },
             "aa6ce88a-df75-4054-ab52-3a0a73e3c912": {
                 _id: "aa6ce88a-df75-4054-ab52-3a0a73e3c912",
@@ -1468,7 +1470,10 @@
                     "Medium - 6 slices": 11.90,
                     "Large - 8 slices": 14.00,
                     "Jumbo - 12 slices": 15.40
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811759183
+
             },
             "af316065-2287-4998-8ae0-d23c2f31212c": {
                 _id: "af316065-2287-4998-8ae0-d23c2f31212c",
@@ -1490,7 +1495,9 @@
                     "Medium - 6 slices": 15.90,
                     "Large - 8 slices": 17.90,
                     "Jumbo - 12 slices": 19.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811731328
             },
             "e6f8a9ab-c1fb-4eff-863e-209a8094da1b": {
                 _id: "e6f8a9ab-c1fb-4eff-863e-209a8094da1b",
@@ -1512,7 +1519,9 @@
                     "Medium - 6 slices": 14.90,
                     "Large - 8 slices": 16.90,
                     "Jumbo - 12 slices": 18.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811707647
             },
             "613a4d4e-7bd3-40b7-b3e5-69554359f4a9": {
                 _id: "613a4d4e-7bd3-40b7-b3e5-69554359f4a9",
@@ -1534,7 +1543,9 @@
                     "Medium - 6 slices": 12.90,
                     "Large - 8 slices": 14.90,
                     "Jumbo - 12 slices": 16.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811687856
             },
             "3dd88e1d-2e7d-46d8-b6db-ed5d96bd50c7": {
                 _id: "3dd88e1d-2e7d-46d8-b6db-ed5d96bd50c7",
@@ -1556,7 +1567,9 @@
                     "Medium - 6 slices": 12.90,
                     "Large - 8 slices": 14.90,
                     "Jumbo - 12 slices": 16.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811661024
             },
             "0a96be75-4f2a-4921-b0af-df8d48de1c2e": {
                 _id: "0a96be75-4f2a-4921-b0af-df8d48de1c2e",
@@ -1578,7 +1591,9 @@
                     "Medium - 6 slices": 14.90,
                     "Large - 8 slices": 16.90,
                     "Jumbo - 12 slices": 18.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811636960
             },
             "e77d8c6b-8183-494c-bfac-121138e633c4": {
                 _id: "e77d8c6b-8183-494c-bfac-121138e633c4",
@@ -1600,7 +1615,9 @@
                     "Medium - 6 slices": 13.90,
                     "Large - 8 slices": 15.90,
                     "Jumbo - 12 slices": 17.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811609263
             },
             "0dfc07fd-98f0-4334-8530-f2be6fa4c74d": {
                 _id: "0dfc07fd-98f0-4334-8530-f2be6fa4c74d",
@@ -1622,7 +1639,9 @@
                     "Medium - 6 slices": 13.90,
                     "Large - 8 slices": 15.90,
                     "Jumbo - 12 slices": 17.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811581408
             },
             "77d94890-3c96-4ab9-a853-a57161a194c0": {
                 _id: "77d94890-3c96-4ab9-a853-a57161a194c0",
@@ -1644,7 +1663,9 @@
                     "Medium - 6 slices": 15.90,
                     "Large - 8 slices": 17.90,
                     "Jumbo - 12 slices": 19.90
-                }
+                },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811556383
             },
             "ebb8253c-db91-480d-a461-60541c781165": {
                 _id: "ebb8253c-db91-480d-a461-60541c781165",
@@ -1658,7 +1679,9 @@
                 // price: [
                 //     4.50
                 // ]
-                price: 4.50
+                price: { default: 4.50 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811513559
             },
             "8bfd089a-cf3a-452d-b373-1724b9a7424e": {
                 _id: "8bfd089a-cf3a-452d-b373-1724b9a7424e",
@@ -1672,7 +1695,9 @@
                 // price: [
                 //     7.50
                 // ]
-                price: 7.50
+                price: { default: 7.50 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811486031
             },
             "bddedc81-8ea0-42a2-9a56-efe28afd84f5": {
                 _id: "bddedc81-8ea0-42a2-9a56-efe28afd84f5",
@@ -1686,7 +1711,9 @@
                 // price: [
                 //     5.90
                 // ]
-                price: 5.90
+                price: { default: 5.90 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811452672
             },
             "331d4499-ce48-4e12-9550-6d4d6ade2424": {
                 _id: "331d4499-ce48-4e12-9550-6d4d6ade2424",
@@ -1700,7 +1727,9 @@
                 // price: [
                 //     3.90
                 // ]
-                price: 3.90
+                price: { default: 3.90 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811424255
             },
             "3985f63e-6c7f-436e-b8bd-20316bcc9087": {
                 _id: "3985f63e-6c7f-436e-b8bd-20316bcc9087",
@@ -1714,12 +1743,15 @@
                 // price: [
                 //     6.90
                 // ]
-                price: 6.90
+                price: { default: 6.90 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811392584
             },
             "c948b627-d101-4a4b-ad3c-cea9815c7a0c": {
                 _id: "c948b627-d101-4a4b-ad3c-cea9815c7a0c",
                 type: "drink",
                 name: "Coca-cola",
+                ingredients: "",
                 // ingredients: "",
                 // size: [
                 //     ""
@@ -1728,12 +1760,15 @@
                 // price: [
                 //     2.60
                 // ]
-                price: 2.60
+                price: { default: 2.60 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811363911
             },
             "298e0f67-9bdf-4b51-80db-2edf50c08c83": {
                 _id: "298e0f67-9bdf-4b51-80db-2edf50c08c83",
                 type: "drink",
                 name: "Fuze Tea",
+                ingredients: "",
                 // ingredients: "",
                 // size: [
                 //     ""
@@ -1742,12 +1777,15 @@
                 // price: [
                 //     2.50
                 // ]
-                price: 2.50
+                price: { default: 2.50 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811331711
             },
             "93be3bbd-43c5-46a8-b56f-809fa29f09bf": {
                 _id: "93be3bbd-43c5-46a8-b56f-809fa29f09bf",
                 type: "drink",
                 name: "Bottled Water",
+                ingredients: "",
                 // ingredients: "",
                 // size: [
                 //     ""
@@ -1756,7 +1794,9 @@
                 // price: [
                 //     2.50
                 // ]
-                price: 2.50
+                price: { default: 2.50 },
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                _createdOn: 1701811265536
             }
         },
         comments: {

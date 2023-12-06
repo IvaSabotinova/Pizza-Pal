@@ -12,6 +12,7 @@ const Paths = {
     MyCustomPizzas: '/customPizzas/all/:_ownerId',
     ProductCreate: 'products/product-create',
     ProductDetails: '/products/details/:productId',
+    ProductEdit: '/products/edit/:productId',
     NotFound: '*'
 }
 

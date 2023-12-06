@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import './ProductDetails.css';
 
 import * as productService from '../../services/productService';
 import AuthContext from '../../contexts/AuthContext';
+import Paths from '../../constants/Paths';
+import { pathToUrl } from '../../utils/pathUtil';
 
 export default function ProductDetails() {
     const { productId } = useParams();
@@ -22,7 +24,7 @@ export default function ProductDetails() {
         setSelectedSize(size);
     };
 
-
+    const image = product.imageUrl?.startsWith('https') ? product.imageUrl : `images/${product.imageUrl}`;
 
     return (<>
         <div className='products-wrapper'>
@@ -30,17 +32,17 @@ export default function ProductDetails() {
             < section className="details-section" >
 
                 <div className='container-img'>
-                    <img src={`images/${product.imageUrl}`} alt={product.name} className="details-img" />
+                    <img src={image} alt={product.name} className="details-img" />
                 </div>
                 <div className="product-info">
                     {/* <p>
                         <span className='details-property'>Name:</span>
                         <span className='details-content'> {product.name}</span>
                     </p> */}
-                    {/* <p>
+                    <p>
                         <span className='details-property'>Type:</span>
                         <span className='details-content'> {product.type}</span>
-                    </p> */}
+                    </p>
                     {/* <p>
                         <span className='details-property'>Published On:</span>
                         <span className='details-content'> {formatDate(product._createdOn)}</span>
@@ -53,7 +55,7 @@ export default function ProductDetails() {
                     {product.type !== 'pizza' &&
                         <p>
                             <span className='details-property'>Price:</span>
-                            <span className='details-content'> BGN {product.price?.toFixed(2)}</span>
+                            <span className='details-content'> BGN {product.price?.default.toFixed(2)}</span>
                         </p>}
                     {/* {product.type === 'pizza' &&
                         <p>
@@ -86,9 +88,9 @@ export default function ProductDetails() {
 
                     {email === 'admin@abv.bg' && (
                         <div className='admin-buttons'>
-                            {/* <Link to={pathToUrl(Paths.CustomPizzaEdit, { pizzaId })}>  */}
-                            <button className="edit-admin">Edit</button>
-                            {/* </Link> */}
+                            <Link to={pathToUrl(Paths.ProductEdit, { productId })}>
+                                <button className="edit-admin">Edit</button>
+                            </Link>
                             {/* <button onClick={handleShowButtons} className="delete-button">Delete</button> */}
                             <button className="delete-admin">Delete</button>
                         </div>)}

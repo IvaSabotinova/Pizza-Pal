@@ -7,8 +7,18 @@ export const getAll = async () => {
     return result;
 }
 
+export const createProduct = async (productData) =>{
+    const result = await libRequest.post(base_Url, productData);
+    return result;
+}
+
 export const getProductById = async (productId) => {
     const result = await libRequest.get(`${base_Url}/${productId}`);
     console.log(result)
+    return result;
+}
+
+export const updateProduct = async (productId, productData) => {
+    const result = await libRequest.patch(`${base_Url}/${productId}`, productData);
     return result;
 }

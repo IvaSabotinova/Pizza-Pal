@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import './ProductCreate.css';
+import './ProductEdit.css';
 
 import * as productService from '../../services/productService';
 import Paths from '../../constants/Paths';
-import { pathToUrl} from '../../utils/pathUtil';
+import { pathToUrl } from '../../utils/pathUtil';
 
 const formInitialValues = {
     name: '',
@@ -15,77 +15,37 @@ const formInitialValues = {
     price: 0,
     "Medium - 6 slices": 0,
     "Large - 8 slices": 0,
-    "Jumbo - 12 slices": 0,    
+    "Jumbo - 12 slices": 0
 }
 
-const errorsInitialState = {
-    name: '',
-    type: '',
-    ingredients: '',
-    imageUrl: '',
-    price: '',
-}
-
-
-
-export default function ProductCreate() {
-    const [formValues, setFormValues] = useState(formInitialValues);
-    const [errors, setErrors] = useState(errorsInitialState)
+export default function ProductEdit() {
+    const { productId } = useParams();
+    const [product, setProduct] = useState(formInitialValues);
     const navigate = useNavigate();
-    const nameRef = useRef();
 
     useEffect(() => {
-        nameRef.current.focus();
-    }, [])
+        productService.getProductById(productId)
+            .then(setInitialProductData)
+            .catch((err) => console.log(err))
 
+    }, [productId]);
 
-    const validateName = () => {
-        if (formValues.name.length < 2 || formValues.name.length > 30) {
-            setErrors(state => ({ ...state, name: 'Name must be between 2 and 30 characters!' }));
+    const setInitialProductData = (productData) => {
+        if (productData.type === 'pizza') {
+            setProduct({
+                ...productData,
+                "Medium - 6 slices": productData.price["Medium - 6 slices"],
+                "Large - 8 slices": productData.price["Large - 8 slices"],
+                "Jumbo - 12 slices": productData.price["Jumbo - 12 slices"]
+
+            })
         } else {
-            setErrors(state => ({ ...state, name: '' }));
+            setProduct({
+                ...productData,
+                price: productData.price.default
+            })
         }
-    };
-
-    const validateType = () => {
-        if (!formValues.type) {
-            setErrors(state => ({ ...state, type: 'Please choose type!' }));
-        } else {
-            setErrors(state => ({ ...state, type: '' }));
-        }
-    };
-
-    const validateIngredients = () => {
-        if (formValues.type !== 'drink') {
-            if (formValues.ingredients.length < 10 || formValues.ingredients.length > 300) {
-                setErrors(state => ({ ...state, ingredients: 'Ingredients must be between 10 and 300 characters!' }));
-            } else {
-                setErrors(state => ({ ...state, ingredients: '' }));
-            }
-        }
-    };
-
-    const validateImageUrl = () => {
-        const imageUrlRegex = /^https:\/\/.+$/;
-        const isValidImageUrl = imageUrlRegex.test(formValues.imageUrl);
-
-        if (!isValidImageUrl) {
-            setErrors(state => ({ ...state, imageUrl: 'Invalid image url!' }))
-        } else {
-            setErrors(state => ({ ...state, imageUrl: '' }))
-        }
-    };
-
-    const validatePrice = () => {
-        if ((formValues.type !== 'pizza' && formValues.price < 0)
-            || (formValues.type === 'pizza' && formValues["Medium - 6 slices"] < 0)
-            || (formValues.type === 'pizza' && formValues["Large - 8 slices"] < 0)
-            || (formValues.type === 'pizza' && formValues["Jumbo - 12 slices"] < 0)) {
-            setErrors(state => ({ ...state, price: 'Price cannot be negative!' }));
-        } else {
-            setErrors(state => ({ ...state, price: '' }));
-        }
-    };
+    }
 
     const changeHandler = (e) => {
         let value = '';
@@ -93,92 +53,76 @@ export default function ProductCreate() {
             case 'number': value = Number(e.target.value); break;
             default: value = e.target.value; break
         }
-        setFormValues(state => ({ ...state, [e.target.name]: value }));
+        setProduct(state => ({ ...state, [e.target.name]: value }));
     }
 
-    const createProductHandler = async (e) => {
+    const editProductHandler = async (e) => {
         e.preventDefault();
-        validateName();
-        validateType();
-        validateIngredients();
-        validateImageUrl();
-        validatePrice();
-
-        if (errors.name != ''
-            || errors.type != ''
-            || errors.ingredients != ''
-            || errors.imageUrl != ''
-            || errors.price != ''            
-            || (formValues.type !== 'drink' && Object.values(formValues).some(x=>x === ''))
-            || (formValues.type === 'drink' && Object.keys(formValues).some(key => key !== 'ingredients' && formValues[key] === ''))) {         
-            
-
-            return;
-        }
 
         let price = {};
-        if (formValues.type === 'pizza') {
+        if (product.type === 'pizza') {
             price = {
-                "Medium - 6 slices": formValues["Medium - 6 slices"],
-                "Large - 8 slices": formValues["Large - 8 slices"],
-                "Jumbo - 12 slices": formValues["Jumbo - 12 slices"]
+                "Medium - 6 slices": product["Medium - 6 slices"],
+                "Large - 8 slices": product["Large - 8 slices"],
+                "Jumbo - 12 slices": product["Jumbo - 12 slices"]
             }
         }
         else {
             price = {
-                default: formValues.price
+                default: product.price
             }
         }
 
-        const product = {
-            name: formValues.name,
-            type: formValues.type,
-            ingredients: formValues.ingredients,
-            imageUrl: formValues.imageUrl,
+        const productToEdit = {
+            name: product.name,
+            type: product.type,
+            ingredients: product.ingredients,
+            imageUrl: product.imageUrl,
             price: price
         }
+console.log(productToEdit)
         try {
-            const newProduct = await productService.createProduct(product);
-            navigate(pathToUrl( Paths.ProductDetails, {productId: newProduct._id}));
-
+            const editedProduct = await productService.updateProduct(productId, productToEdit);
+            console.log(editedProduct)
+            navigate(pathToUrl(Paths.ProductDetails, { productId }));
         } catch (err) {
             console.log(err)
         }
 
-
     }
+
 
     return (
         <section className="create-product_section product_layout_padding">
             <div className="container">
                 <div className="heading_container">
-                    <h2 className="text-center mx-auto">Create New Product</h2>
+                    <h2 className="text-center mx-auto">Edit Product</h2>
                 </div>
                 <div className="row">
                     <div className="col-md-8 offset-lg-1">
                         <div className="form_container">
-                            <form action="" className="create-product_form" onSubmit={createProductHandler}>
+                            <form action="" className="create-product_form" onSubmit={editProductHandler}>
                                 <div >
                                     <label className="heading_label" htmlFor="name">Name</label>
                                     <input className="form-control" placeholder="Name your product..."
                                         id='name'
                                         type="text"
                                         name='name'
-                                        value={formValues.name}
+                                        value={product.name}
                                         onChange={changeHandler}
-                                        onBlur={validateName}
-                                        ref={nameRef}
+                                    // onBlur={validateName}
+                                    // ref={nameRef}
                                     />
-                                    {errors.name && (<p className="errorMessage">{errors.name}</p>)}
+                                    {/* {errors.name && (<p className="errorMessage">{errors.name}</p>)} */}
                                 </div>
                                 <div>
                                     <label className="heading_label" htmlFor="type">Type</label>
                                     <select className="form-control"
                                         id="type"
                                         name="type"
-                                        value={formValues.type}
+                                        value={product.type}
                                         onChange={changeHandler}
-                                        onBlur={validateType}
+                                    //  onBlur={validateType}
                                     >
                                         <option value="" disabled="" >Choose type?</option>
                                         <option value="pizza">Pizza</option>
@@ -186,35 +130,36 @@ export default function ProductCreate() {
                                         <option value="dessert">Dessert</option>
                                         <option value="drink">Drink</option>
                                     </select>
-                                    {errors.type && (<p className="errorMessage">{errors.type}</p>)}
+                                    {/* {errors.type && (<p className="errorMessage">{errors.type}</p>)} */}
                                 </div>
-                                {formValues.type !== 'drink' &&
+                                {product.type !== 'drink' &&
                                     <div >
                                         <label className="heading_label" htmlFor="ingredients">Ingredients:</label>
                                         <input className="form-control" placeholder="Write ingredients..."
                                             id='ingredients'
                                             type="text"
                                             name='ingredients'
-                                            value={formValues.ingredients}
+                                            value={product.ingredients}
                                             onChange={changeHandler}
-                                            onBlur={validateIngredients}
+                                        //  onBlur={validateIngredients}
 
                                         />
-                                        {errors.ingredients && (<p className="errorMessage">{errors.ingredients}</p>)}
-                                    </div>}
+                                        {/* {errors.ingredients && (<p className="errorMessage">{errors.ingredients}</p>)} */}
+                                    </div>
+                                }
                                 <div>
                                     <label className="heading_label" htmlFor="imageUrl">Add photo url</label>
                                     <input className="form-control" placeholder="Add image url"
                                         id="imageUrl"
                                         name="imageUrl"
                                         type="text"
-                                        value={formValues.imageUrl}
+                                        value={product.imageUrl}
                                         onChange={changeHandler}
-                                        onBlur={validateImageUrl}
+                                    //   onBlur={validateImageUrl}
                                     />
-                                    {errors.imageUrl && (<p className="errorMessage">{errors.imageUrl}</p>)}
+                                    {/* {errors.imageUrl && (<p className="errorMessage">{errors.imageUrl}</p>)} */}
                                 </div>
-                                {formValues.type === 'pizza' &&
+                                {product.type === 'pizza' &&
                                     <div>
                                         <p className="heading_label">Price per size</p>
                                         <div className='pizza-sizes'>
@@ -223,44 +168,49 @@ export default function ProductCreate() {
                                                 <input id="Medium - 6 slices"
                                                     type="number"
                                                     name="Medium - 6 slices"
-                                                    value={formValues["Medium - 6 slices"]}
+                                                    value={product["Medium - 6 slices"]}
                                                     onChange={changeHandler}
-                                                    onBlur={validatePrice} />
+                                                //    onBlur={validatePrice} 
+                                                />
                                             </div>
                                             <div className='pizza-size-02'>
                                                 <label htmlFor="Large - 8 slices">Large - 8 slices</label>
                                                 <input id="Large - 8 slices"
                                                     type="number"
                                                     name="Large - 8 slices"
-                                                    value={formValues["Large - 8 slices"]}
+                                                    value={product["Large - 8 slices"]}
                                                     onChange={changeHandler}
-                                                    onBlur={validatePrice} />
+                                                //    onBlur={validatePrice} 
+                                                />
                                             </div>
                                             <div className='pizza-size-03'>
                                                 <label htmlFor="Jumbo - 12 slices">Jumbo - 12 slices</label>
                                                 <input id="Jumbo - 12 slices"
                                                     type="number"
                                                     name="Jumbo - 12 slices"
-                                                    value={formValues["Jumbo - 12 slices"]}
+                                                    value={product["Jumbo - 12 slices"]}
                                                     onChange={changeHandler}
-                                                    onBlur={validatePrice} />
+                                                //  onBlur={validatePrice} 
+                                                />
                                             </div>
                                         </div>
-                                        {errors.price && (<p className="errorMessage">{errors.price}</p>)}
-                                    </div>}
-                                {(formValues.type !== 'pizza' || formValues.type === '') &&
+                                        {/* {errors.price && (<p className="errorMessage">{errors.price}</p>)} */}
+                                    </div>
+                                }
+                                {(product.type !== 'pizza' || product.type === '') &&
                                     <div >
                                         <label className="heading_label" htmlFor="price">Price</label>
                                         <input className="form-control" placeholder="Write product price..."
                                             id='price'
                                             type="number"
                                             name='price'
-                                            value={formValues.price}
+                                            value={product.price}
                                             onChange={changeHandler}
-                                            onBlur={validatePrice}
+                                        //   onBlur={validatePrice}
                                         />
-                                        {errors.price && (<p className="errorMessage">{errors.price}</p>)}
-                                    </div>}
+                                        {/* {errors.price && (<p className="errorMessage">{errors.price}</p>)} */}
+                                    </div>
+                                }
 
                                 <div className="btn_box offset-3">
                                     <button>Submit</button>
@@ -272,6 +222,5 @@ export default function ProductCreate() {
                 </div>
             </div>
         </section>
-
     );
 }

@@ -20,6 +20,7 @@ import NotFound from "./components/not-found/NotFound";
 import MyCustomPizzas from "./components/my-custom-pizzas/MyCustomPizzas";
 import ProductDetails from "./components/products-details/ProductDetails";
 import ProductCreate from "./components/product-create/ProductCreate";
+import ProductEdit from "./components/product-edit/ProductEdit";
 
 
 function App() {
@@ -34,7 +35,6 @@ function App() {
                 <Route path={Paths.Login} element={<Login />} />
                 <Route path={Paths.CustomPizzaList} element={<CustomPizzaList />} />
                 <Route path={Paths.CustomPizzaDetails} element={<CustomPizzaDetails />} />
-                <Route path={Paths.ProductCreate} element={<ProductCreate />} />
                 <Route path={Paths.ProductDetails} element={<ProductDetails />} />
 
                 <Route element={<AuthGuard />}>
@@ -42,6 +42,8 @@ function App() {
                     <Route path={Paths.CreatePizza} element={<CustomPizzaCreate />} />
                     <Route path={Paths.CustomPizzaEdit} element={<CustomPizzaEdit />} />
                     <Route path={Paths.MyCustomPizzas} element={<MyCustomPizzas />} />
+                    <Route path={Paths.ProductCreate} element={<ProductCreate />} />
+                    <Route path={Paths.ProductEdit} element={<ProductEdit/>}/>
                 </Route>
                 <Route path={Paths.NotFound} element={<NotFound />} />
             </Routes>

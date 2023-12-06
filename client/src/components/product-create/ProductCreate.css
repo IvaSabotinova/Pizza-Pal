@@ -66,8 +66,8 @@
     background-color: #e69c00;
   }
   
-  /* .create-product_section .errorMessage{
+  .create-product_section .errorMessage{
     color: red;
     font-size: 0.8em;
     margin: 0 0 10px;
-  } */
+  }
