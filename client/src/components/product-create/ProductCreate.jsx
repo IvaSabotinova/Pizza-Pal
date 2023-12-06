@@ -26,8 +26,6 @@ const errorsInitialState = {
     price: '',
 }
 
-
-
 export default function ProductCreate() {
     const [formValues, setFormValues] = useState(formInitialValues);
     const [errors, setErrors] = useState(errorsInitialState)

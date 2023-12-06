@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 import './ProductDetails.css';
 
@@ -13,6 +13,9 @@ export default function ProductDetails() {
     const [product, setProduct] = useState({});
     const { email } = useContext(AuthContext);
     const [selectedSize, setSelectedSize] = useState("Medium - 6 slices");
+    const [shownButtons, setShownButtons] = useState(true);
+    const [shownDelete, setShownDelete] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         productService.getProductById(productId)
@@ -23,6 +26,26 @@ export default function ProductDetails() {
     const handleSizeChange = (size) => {
         setSelectedSize(size);
     };
+
+    const handleShowButtons = () => {
+        setShownButtons(false);
+        setShownDelete(true);
+    };
+
+    const onClickCloseHandler = () => {
+        setShownButtons(true);
+        setShownDelete(false);
+    };
+
+    const deleteHandler = async (e) => {
+        try {
+            await productService.deleteProduct(productId);
+            navigate(Paths.Menu)
+        } catch (err) {
+            console.log(err);
+        }
+
+    }
 
     const image = product.imageUrl?.startsWith('https') ? product.imageUrl : `images/${product.imageUrl}`;
 
@@ -35,18 +58,10 @@ export default function ProductDetails() {
                     <img src={image} alt={product.name} className="details-img" />
                 </div>
                 <div className="product-info">
-                    {/* <p>
-                        <span className='details-property'>Name:</span>
-                        <span className='details-content'> {product.name}</span>
-                    </p> */}
                     <p>
                         <span className='details-property'>Type:</span>
                         <span className='details-content'> {product.type}</span>
                     </p>
-                    {/* <p>
-                        <span className='details-property'>Published On:</span>
-                        <span className='details-content'> {formatDate(product._createdOn)}</span>
-                    </p> */}
                     {product.type !== 'drink' &&
                         <p>
                             <span className='details-property'>Ingredients:</span>
@@ -57,14 +72,6 @@ export default function ProductDetails() {
                             <span className='details-property'>Price:</span>
                             <span className='details-content'> BGN {product.price?.default.toFixed(2)}</span>
                         </p>}
-                    {/* {product.type === 'pizza' &&
-                        <p>
-                            <span className='details-property'>Size:</span>
-                            <span className='pizza-details-content'> {product?.size?.[0]}</span>
-                            <span className='pizza-details-content'> {product?.size?.[1]}</span>
-                            <span className='pizza-details-content'> {product?.size?.[2]}</span>
-                        </p>} */}
-
                     {product.type === 'pizza' && (
                         <>
                             <p>
@@ -86,20 +93,20 @@ export default function ProductDetails() {
                         </>
                     )}
 
-                    {email === 'admin@abv.bg' && (
+                    {email === 'admin@abv.bg' && shownButtons && (
                         <div className='admin-buttons'>
                             <Link to={pathToUrl(Paths.ProductEdit, { productId })}>
                                 <button className="edit-admin">Edit</button>
                             </Link>
-                            {/* <button onClick={handleShowButtons} className="delete-button">Delete</button> */}
-                            <button className="delete-admin">Delete</button>
+                            <button onClick={handleShowButtons} className="delete-admin">Delete</button>
+
                         </div>)}
 
-                    {/* {shownDelete && <div>
+                    {email === 'admin@abv.bg' && shownDelete && <div>
                         <p className="confirm-deletion">Are you sure you want to permanently delete that pizza?</p>
                         <button onClick={deleteHandler} className="confirm-delete">YES</button>
                         <button onClick={onClickCloseHandler} className="not-confirm-delete">NO</button>
-                    </div>} */}
+                    </div>}
                 </div>
             </section >
         </div>

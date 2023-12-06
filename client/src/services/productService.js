@@ -13,12 +13,17 @@ export const createProduct = async (productData) =>{
 }
 
 export const getProductById = async (productId) => {
-    const result = await libRequest.get(`${base_Url}/${productId}`);
-    console.log(result)
+    const result = await libRequest.get(`${base_Url}/${productId}`);   
     return result;
 }
 
 export const updateProduct = async (productId, productData) => {
     const result = await libRequest.patch(`${base_Url}/${productId}`, productData);
+    return result;
+}
+
+export const deleteProduct = async (productId) =>{
+    const result = await libRequest.remove(`${base_Url}/${productId}`);
+    console.log(result)
     return result;
 }

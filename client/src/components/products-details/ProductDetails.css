@@ -102,7 +102,7 @@
     background-color: #d9534f;
 }
 
-/* .confirm-delete,
+.confirm-delete,
 .not-confirm-delete {
     display: inline-block;
     padding: 10px 20px;
@@ -112,15 +112,15 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-} */
+}
 
-/* .confirm-delete {
+.confirm-delete {
     background-color: #d9534f;
     margin-right: 30px;
-} */
+}
 
-/* .confirm-deletion {
+.confirm-deletion {
     font-weight: bold;
     font-size: large;
     color: #cf1e18;
-}  */
+} 

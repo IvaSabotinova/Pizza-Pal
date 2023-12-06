@@ -14,7 +14,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    /* width: 75%; */
   }
 
   .pizza-size-01,
@@ -32,8 +31,6 @@
     color: #000000;
     border-radius: 10px;
   } 
-
-
   
   .create-product_section .form_container .form-control {
     width: 80%;
@@ -43,11 +40,8 @@
     color: #000000;
     border-radius: 10px;
   }
-
-
    
   .create-product_section .form_container .heading_label{
-    /* font-family: 'Dancing Script', cursive; */
     font-size: 20px;
   }
   

@@ -43,5 +43,4 @@ const FavoriteItem = ({
         </div>
     );
 }
-
 export default FavoriteItem;
