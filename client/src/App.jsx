@@ -21,6 +21,8 @@ import MyCustomPizzas from "./components/my-custom-pizzas/MyCustomPizzas";
 import ProductDetails from "./components/products-details/ProductDetails";
 import ProductCreate from "./components/product-create/ProductCreate";
 import ProductEdit from "./components/product-edit/ProductEdit";
+import ScrollUp from './components/scroll-up/ScrollUp';
+
 
 
 function App() {
@@ -48,6 +50,7 @@ function App() {
                 <Route path={Paths.NotFound} element={<NotFound />} />
             </Routes>
             <Footer />
+            <ScrollUp/>
         </AuthProvider>
     )
 }
