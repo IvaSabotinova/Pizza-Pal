@@ -8,7 +8,7 @@ export default function Clients() {
                 <div className="heading_container heading_center psudo_white_primary mb_45">
                     <h2>What Say Our Customers</h2>
                 </div>
-                <div className="client-wrap row ">
+                <div className="client-wrap row">
                     {/* <div className="owl-carousel client_owl-carousel"> */}
                     <div className="item">
                         <div className="box">

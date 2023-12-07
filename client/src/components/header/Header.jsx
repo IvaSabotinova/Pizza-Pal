@@ -22,7 +22,7 @@ export default function Header() {
                         <div className="container">
                             <nav className="navbar navbar-expand-lg custom_nav-container ">
                                 {email !== 'admin@abv.bg' &&
-                                    <Link className="navbar-brand">
+                                    <Link to={Paths.Home} className="navbar-brand">
                                         <span>Pizza Pal</span>
                                     </Link>}
                                 {email === 'admin@abv.bg' &&
@@ -180,7 +180,7 @@ export default function Header() {
                             <div className="container">
                                 <nav className="navbar navbar-expand-lg custom_nav-container ">
                                     {email !== 'admin@abv.bg' &&
-                                        <Link className="navbar-brand">
+                                        <Link to={Paths.Home} className="navbar-brand">
                                             <span>Pizza Pal</span>
                                         </Link>}
                                     {email === 'admin@abv.bg' &&
