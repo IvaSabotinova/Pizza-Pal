@@ -1,5 +1,5 @@
 import Offer from '../offer/Offer';
-import FavoritesList from "../Favorites/FavoritesList";
+import LatestProposals from '../latest-proposals/LatestProposals'
 import CustomPizzaMessage from '../custom-pizza/CustomPizzaMessage';
 import Clients from '../clients/Clients';
 
@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
             <Offer />
-            <FavoritesList />
+            <LatestProposals />
             <CustomPizzaMessage />
             <Clients />
         </>

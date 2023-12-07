@@ -9,7 +9,7 @@ export default function CustomPizzaList() {
     const [pizzas, setPizzas] = useState([]);
 
     useEffect(() => {
-        customPizzaService.getAll()
+        customPizzaService.getAllDesc()
             .then(setPizzas)
             .catch((err) => console.log(err))
     }, []);

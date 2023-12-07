@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Paths from '../../constants/Paths';
 import { pathToUrl } from '../../utils/pathUtil';
 
-const FavoriteItem = ({
+const LatestProposalsItem = ({
     _id,
     type,
     name,
@@ -43,4 +43,4 @@ const FavoriteItem = ({
         </div>
     );
 }
-export default FavoriteItem;
+export default LatestProposalsItem;
