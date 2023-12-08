@@ -5,44 +5,44 @@ export default function Footer() {
                 <div className="col-md-4 footer-col">
                     <div className="footer_contact">
                         <h4>Contact Us</h4>
-                        <div className="contact_link_box">
-                            <a href="">
+                        <div className="contact_link_box">                         
+                            <span >
                                 <i className="fa fa-map-marker" aria-hidden="true" />
                                 <span>Location</span>
-                            </a>
-                            <a href="">
+                            </span>
+                            <span >
                                 <i className="fa fa-phone" aria-hidden="true" />
                                 <span>Call +01 1234567890</span>
-                            </a>
-                            <a href="">
+                            </span>
+                            <span >
                                 <i className="fa fa-envelope" aria-hidden="true" />
                                 <span>pizza-pal@gmail.com</span>
-                            </a>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4 footer-col">
                     <div className="footer_detail">
-                        <a href="" className="footer-logo">
+                        <span className="footer-logo">
                             Pizza Pal Restaurant
-                        </a>
+                        </span>
                         <p>
                             We, at Pizza Pal, value our Customers, offering ONLY high quality foods!
                         </p>
                         <div className="footer_social">
-                            <a href="">
+                            <a href="https://github.com/IvaSabotinova/Pizza-Pal">
                                 <i className="fa fa-facebook" aria-hidden="true" />
                             </a>
-                            <a href="">
+                            <a href="https://github.com/IvaSabotinova/Pizza-Pal">
                                 <i className="fa fa-twitter" aria-hidden="true" />
                             </a>
-                            <a href="">
+                            <a href="https://github.com/IvaSabotinova/Pizza-Pal">
                                 <i className="fa fa-linkedin" aria-hidden="true" />
                             </a>
-                            <a href="">
+                            <a href="https://github.com/IvaSabotinova/Pizza-Pal">
                                 <i className="fa fa-instagram" aria-hidden="true" />
                             </a>
-                            <a href="">
+                            <a href="https://github.com/IvaSabotinova/Pizza-Pal">
                                 <i className="fa fa-pinterest" aria-hidden="true" />
                             </a>
                         </div>
@@ -57,12 +57,12 @@ export default function Footer() {
             <div className="footer-info">
                 <p>
                     © <span id="displayYear"> </span>All Rights Reserved By
-                    <a href=""> Pizza Pal Restaurant</a>
+                    <span> Pizza Pal Restaurant</span>
                     <br />
                     <br />
                     © <span id="displayYear"> </span>Distributed By
-                    <a href="" target="_blank"> Pizza Pal Restaurant
-                    </a>
+                    <span target="_blank"> Pizza Pal Restaurant
+                    </span>
                 </p>
             </div>
         </div>

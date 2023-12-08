@@ -57,13 +57,12 @@ export default function CustomPizzaDetails() {
         try {
 
             await customPizzaService.deletePizza(pizzaId);
-            navigate(Paths.CustomPizzaList)
+            navigate(pathToUrl(Paths.MyCustomPizzas, {_ownerId : pizza._ownerId}))
 
         } catch (err) {
             console.log(err);
         }
     }
-
     const validateComment = () => {
         const trimmedContent = comment.content.trim();
         if (trimmedContent.length < 2 || trimmedContent.length > 500) {
@@ -81,8 +80,7 @@ export default function CustomPizzaDetails() {
     const onSubmitCreateUpdateComment = async (e) => {
         e.preventDefault();
         validateComment();
-        if (commentError !== '' || comment.content == '') {
-           // console.log(commentError.content)
+        if (commentError !== '' || comment.content == '') {          
             return;
         }
         if (editMode) {

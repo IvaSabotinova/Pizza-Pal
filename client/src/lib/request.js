@@ -6,16 +6,7 @@ const buildOptions = (data) => {
         }
         options.body = JSON.stringify(data);
 
-    }
-
-    // const token = localStorage.getItem('accessToken');
-
-    // if (token) {
-    //     options.headers = {
-    //         ...options.headers,
-    //         'X-Authorization': token
-    //     }
-    // }       
+    }  
 
     const token = JSON.parse(localStorage.getItem('auth'))?.accessToken;
 

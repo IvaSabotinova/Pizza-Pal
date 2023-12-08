@@ -18,7 +18,6 @@ export const AuthProvider = ({
     const registerSubmitHandler = async (values) => {
         const result = await userService.Register(values.username, values.email, values.password);
         setAuth(result);
-        // localStorage.setItem('accessToken', result.accessToken);
         navigate(Paths.Home);
     }
 
@@ -27,7 +26,6 @@ export const AuthProvider = ({
         try {
             const result = await userService.Login(values);
             setAuth(result);
-            // localStorage.setItem('accessToken', result.accessToken);
             navigate(Paths.Home);
         } catch (err) {
             console.log("Login failed:", err);     
@@ -38,7 +36,6 @@ export const AuthProvider = ({
 
     const logOutHandler = () => {
         setAuth({});
-        //  localStorage.removeItem('accessToken');
         navigate(Paths.Home);
     }
 

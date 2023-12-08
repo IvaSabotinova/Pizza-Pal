@@ -132,8 +132,7 @@ export default function CreateCustomPizza() {
             console.log(errors)
             navigate(Paths.CustomPizzaList);
 
-        } catch (err) {
-            //Error notification
+        } catch (err) {           
             console.log(err);
         }
     }
@@ -328,12 +327,7 @@ export default function CreateCustomPizza() {
                                 </div>
                             </form>
                         </div>
-                    </div>
-                    {/* <div className="col-md-6">
-                        <div className="map_container ">
-                            <div id="googleMap" />
-                        </div>
-                    </div> */}
+                    </div>               
                 </div>
             </div>
         </section>
