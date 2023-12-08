@@ -47,3 +47,6 @@ Server - [SoftUni Practice Server](https://github.com/softuni-practice-server/so
 | Admin   | admin@abv.bg  |123456 | 
 | Peter  | peter@abv.bg  |123456 | 
 | George  | george@abv.bg  |123456 | 
+
+<!-- FE deploy in Firebase:
+https://pizza-pal-reactjs.web.app/#/ -->
