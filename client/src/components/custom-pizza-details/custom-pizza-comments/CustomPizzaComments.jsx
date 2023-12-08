@@ -48,7 +48,7 @@ export default function CustomPizzaComments({
                                 onBlur={validateComment}
                             ></textarea>
                             {error !== '' && <p className="errorMessage">{error}</p>}
-                            <input className="btn submit" type="submit" value="Add Comment" />
+                            <input className="btn submit" type="submit" value="Submit Comment" />
                         </form>
                     </>
                 }

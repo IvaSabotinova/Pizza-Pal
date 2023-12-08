@@ -57,7 +57,7 @@ export default function CustomPizzaDetails() {
         try {
 
             await customPizzaService.deletePizza(pizzaId);
-            navigate(pathToUrl(Paths.MyCustomPizzas, {_ownerId : pizza._ownerId}))
+            navigate(pathToUrl(Paths.MyCustomPizzas, {_ownerId : userId}))           
 
         } catch (err) {
             console.log(err);
