@@ -6,31 +6,34 @@
 }
 
 .details-wrapper {
-    position: relative;
+    /* position: relative;
     height: 80vh;
     padding: 1% 1%;
-    margin: 2% auto;
+    margin: 2% auto; */
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+    margin: 50px 10% 100px 10%;
 }
 
 .details-img {
     width: 500px;
     height: 350px;
     object-fit: cover;
-    border-radius: 35px;  
+    border-radius: 35px;
+    border: 1px solid rgb(241, 205, 161);
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 12px 12px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .details-info {
-    height: 420px;
+    /* height: 420px; */
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    justify-content: center;
+    /* gap: 2px;
     max-width: 50%;
-    padding: 0 20px;
+    padding: 0 20px; */
     overflow: auto;
 }
 
@@ -93,26 +96,26 @@
     color: #cf1e18;
 }
 
-.comments-section{
+.comments-section {
     margin-bottom: 20px;
 }
 
-.details-comments h2{
+.details-comments h2 {
     text-align: center;
     font-weight: 900;
-    font-size:xx-large;
+    font-size: xx-large;
     color: #222831;
 }
 
 .details-comments li {
-    width: 700px;  
+    width: 700px;
     display: block;
-    position: static; 
+    position: static;
     margin: 20px auto 25px auto;
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 12px 12px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 16px;
     margin-left: 60px;
-    background-color:#edb86a;
+    background-color: #edb86a;
     color: #222831;
 }
 
@@ -121,30 +124,30 @@
     margin-bottom: -10px;
 }
 
-.comment .username{
-    padding-top: 6px;  
+.comment .username {
+    padding-top: 6px;
 }
 
-.comment .date{ 
+.comment .date {
     font-size: 13px;
 }
 
-.comment .buttons_date{
+.comment .buttons_date {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
 }
 
-.comment .buttons_date .buttons{
+.comment .buttons_date .buttons {
     margin-right: 10px;
 }
 
-.comment .buttons_date .buttons .edit{
+.comment .buttons_date .buttons .edit {
     margin-right: 10px;
 }
 
 .comment .buttons_date .buttons .edit,
-.comment .buttons_date .buttons .delete{
+.comment .buttons_date .buttons .delete {
     color: #fff;
     background-color: #df8909;
     border: none;
@@ -153,11 +156,11 @@
     font-size: 15px;
 }
 
-.comment .buttons_date .buttons .delete{
+.comment .buttons_date .buttons .delete {
     background-color: #d9534f;
 }
 
-.details-comments .no-comment{
+.details-comments .no-comment {
     text-align: center;
     font-weight: bold;
     color: white;
@@ -176,6 +179,12 @@
     box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 12px 12px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.create-comment p {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+}
+
 .create-comment>.form>textarea {
     margin-top: 22px;
     margin-bottom: 28px;
@@ -191,7 +200,7 @@
     line-height: normal;
 }
 
-.create-comment .btn{
+.create-comment .btn {
     padding: 10px 20px;
     border: none;
     background-color: #ffbe33;
@@ -200,16 +209,12 @@
     color: white;
 }
 
-.create-comment .btn:hover{
+.create-comment .btn:hover {
     background-color: #e69c00;
 }
 
-.create-comment .errorMessage{
+.create-comment .errorMessage {
     color: red;
     font-size: 0.8em;
     margin: 10px 0;
-  } 
-  
-
-
-
+}

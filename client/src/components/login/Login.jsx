@@ -1,10 +1,10 @@
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Login.css'
 
 import Paths from '../../constants/Paths';
 import AuthContext from '../../contexts/AuthContext';
-import { useContext, useState } from 'react';
 
 const LoginFormKeys = {
   Email: 'email',
@@ -20,8 +20,7 @@ export default function Login() {
 
   const [errors, setErrors] = useState({
     [LoginFormKeys.Email]: '',
-    [LoginFormKeys.Password]: '',
-
+    [LoginFormKeys.Password]: '',  
   });
 
 
@@ -61,13 +60,12 @@ export default function Login() {
     try {
       console.log(formValues)
       loginSubmitHandler(formValues)
+
     } catch (err) {
-      console.log(err)
+      console.log(err);      
     }
 
-
   }
-
 
   return (
     <section className="login_section login_layout_padding">
@@ -99,9 +97,8 @@ export default function Login() {
                     value={formValues.password}
                     onChange={changeHandler}
                     onBlur={validatePassword} />
-                  {errors.password && (<p className="errorMessage">{errors.password}</p>)}
+                  {errors.password && (<p className="errorMessage">{errors.password}</p>)}                 
                 </div>
-
                 <div className="btn_box offset-4">
                   <button>Submit</button>
                 </div>
@@ -116,3 +113,6 @@ export default function Login() {
     </section>
   );
 }
+
+
+

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -12,27 +12,33 @@ AuthContext.displayName = 'AuthContext';
 export const AuthProvider = ({
     children
 }) => {
-    const [auth, setAuth] = useLocalStorage('auth', {});
+    const [auth, setAuth] = useLocalStorage('auth', {});   
     const navigate = useNavigate();
-
+  
     const registerSubmitHandler = async (values) => {
         const result = await userService.Register(values.username, values.email, values.password);
         setAuth(result);
-       // localStorage.setItem('accessToken', result.accessToken);
+        // localStorage.setItem('accessToken', result.accessToken);
         navigate(Paths.Home);
     }
 
 
     const loginSubmitHandler = async (values) => {
-        const result = await userService.Login(values);    
-        setAuth(result);
-      // localStorage.setItem('accessToken', result.accessToken);
-        navigate(Paths.Home);
+        try {
+            const result = await userService.Login(values);
+            setAuth(result);
+            // localStorage.setItem('accessToken', result.accessToken);
+            navigate(Paths.Home);
+        } catch (err) {
+            console.log("Login failed:", err);     
+            navigate(Paths.Register)        
+        }
+
     }
 
     const logOutHandler = () => {
         setAuth({});
-      //  localStorage.removeItem('accessToken');
+        //  localStorage.removeItem('accessToken');
         navigate(Paths.Home);
     }
 
@@ -43,8 +49,7 @@ export const AuthProvider = ({
         userId: auth._id,
         email: auth.email,
         username: auth.username,
-        isAuthenticated: !!auth.accessToken
-
+        isAuthenticated: !!auth.accessToken,               
     }
     return (
         <AuthContext.Provider value={contextValues}>

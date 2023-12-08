@@ -105,13 +105,14 @@ export default function Header() {
                                                     <div className="detail-box">
                                                         <h1>Pizza Pal Restaurant</h1>
                                                         <p>
-                                                            Welcome to our Pizza Pal Restaurant, where your pizza cravings meet convenience.
+                                                            Welcome to our savory haven of pizzas! Dive into a world of endless possibilities as you create, savor, and share your unique pizza masterpieces.
+                                                            {/* Welcome to our Pizza Pal Restaurant, where your pizza cravings meet convenience. */}
                                                         </p>
-                                                        <div className="btn-box">
+                                                        {/* <div className="btn-box">
                                                             <a href="" className="btn1">
                                                                 Search
                                                             </a>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,13 +125,14 @@ export default function Header() {
                                                     <div className="detail-box">
                                                         <h1>Pizza Pal Restaurant</h1>
                                                         <p>
-                                                            At Pizza Pal Restaurant we're serving up piping-hot pizzas with a side of seamless online ordering.
+                                                            Craft your own delectable creations, explore mouthwatering varieties, and engage with a community that shares your passion.
+                                                            {/* At Pizza Pal Restaurant we're serving up piping-hot pizzas with a side of seamless online ordering. */}
                                                         </p>
-                                                        <div className="btn-box">
+                                                        {/* <div className="btn-box">
                                                             <a href="" className="btn1">
                                                                 Search
                                                             </a>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,13 +145,13 @@ export default function Header() {
                                                     <div className="detail-box">
                                                         <h1>Pizza Pal Restaurant</h1>
                                                         <p>
-                                                            The pizza you love, delivered to your doorstep. It's all possible with Pizza Pal Restaurant.
+                                                            Your pizza journey starts here – indulge, create, and connect with fellow pizza lovers!
                                                         </p>
-                                                        <div className="btn-box">
+                                                        {/* <div className="btn-box">
                                                             <a href="" className="btn1">
                                                                 Search
                                                             </a>
-                                                        </div>
+                                                        </div> */}
                                                     </div>
                                                 </div>
                                             </div>
