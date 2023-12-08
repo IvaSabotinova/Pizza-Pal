@@ -131,7 +131,7 @@ export default function ProductCreate() {
         const product = {
             name: formValues.name,
             type: formValues.type,
-            ingredients: formValues.ingredients,
+            ingredients: formValues.type !== 'drink' ? formValues.ingredients : '',
             imageUrl: formValues.imageUrl,
             price: price
         }

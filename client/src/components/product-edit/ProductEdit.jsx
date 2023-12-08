@@ -156,11 +156,11 @@ export default function ProductEdit() {
                 default: product.price
             }
         }
-
+     
         const productToEdit = {
             name: product.name,
-            type: product.type,
-            ingredients: product.ingredients,
+            type: product.type,      
+            ingredients: product.type !== 'drink' ? product.ingredients : '',
             imageUrl: product.imageUrl,
             price: price
         }
