@@ -12,3 +12,20 @@
 ### Built With
 
 ### Getting started
+1. Clone the repo
+   ```sh
+   git clone https://github.com/IvaSabotinova/Pizza-Pal.git
+   ```
+2. In directory "/client", open command terminal and run:
+   ```sh
+   npm install
+   ```
+ 
+   ```sh
+   npm run dev
+   ```
+4. In directory "/server", open command terminal and run:
+   ```sh
+   node server.js
+   ```
+
