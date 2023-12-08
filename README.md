@@ -13,13 +13,13 @@ The app has **public**, **private** part and **admin** area.
 
 The **public part** is available without authentication. The area includes - Home, Menu, About, All Custom Pizzas, Details, Register and Login.
 
-The **private area** is accessible after successful login. Every logged-in user gets additional access to My Pizzas repo, he can also add / edit / delete his own pizzas, as well as leave a comment on any custom pizza, edit / delete his comment(s).
+The **private area** is accessible after successful login. Every logged-in user gets additional access to My Pizzas repo, he can also add / edit / delete his own pizzas, as well as leave a comment on any custom pizza and edit / delete his comment(s).
 
 The **admin** has special rights for overriding ownership hence he can edit / delete other users' records. He can also create / edit / delete his own pizzas and other products.
 
 ### Built With
 
-Front-End - [React](https://react.dev/)
+Front-End - [ReactJS](https://react.dev/)
 
 Server - [SoftUni Practice Server](https://github.com/softuni-practice-server/softuni-practice-server)
 
