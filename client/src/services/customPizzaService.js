@@ -1,7 +1,7 @@
 import * as libRequest from '../lib/request'
 
 //const base_Url = `http://localhost:4000/data/custom-pizzas`;
-const base_Url = `/data/custom-pizzas`;
+const base_Url = `https://pizza-pal-act4.onrender.com/data/custom-pizzas`;
 
 export const createCustomPizza = async (pizzaData) => {
     const result = await libRequest.post(base_Url, pizzaData);

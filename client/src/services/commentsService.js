@@ -1,7 +1,7 @@
 import * as libRequest from '../lib/request';
 
 //const base_Url = `http://localhost:4000/data/comments`;
-const base_Url = `/data/comments`;
+const base_Url = `https://pizza-pal-act4.onrender.com/data/comments`;
 
 export const createComment = async (pizzaId, content) => {
     const result = await libRequest.post(base_Url, { pizzaId, content });
