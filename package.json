@@ -2,8 +2,9 @@
   "name": "pizza-pal",
   "version": "1.0.0",
   "description": "client-server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "jest"
   },
   "repository": {
