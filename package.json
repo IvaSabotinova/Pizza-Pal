@@ -1,0 +1,19 @@
+{
+  "name": "pizza-pal",
+  "version": "1.0.0",
+  "description": "client-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvaSabotinova/Pizza-Pal.git"
+  },
+  "author": "Iva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvaSabotinova/Pizza-Pal/issues"
+  },
+  "homepage": "https://github.com/IvaSabotinova/Pizza-Pal#readme"
+}
