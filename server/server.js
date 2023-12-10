@@ -1334,7 +1334,7 @@
                 email: "admin@abv.bg",
                 username: "Admin",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            }         
+            }
         },
         sessions: {
         }
@@ -1425,8 +1425,8 @@
                 _id: "6403f1b0-7191-404e-acaf-1bebc364023b",
                 type: "pizza",
                 name: "Make Your Custom Pizza",
-                ingredients: "Create your own pizza! Choose your size, base, and add any topping combination you wish!",            
-                imageUrl: "pizzas/custom-pizza.png",              
+                ingredients: "Create your own pizza! Choose your size, base, and add any topping combination you wish!",
+                imageUrl: "pizzas/custom-pizza.png",
                 price: {
                     "Medium - 6 slices": 6.50,
                     "Large - 8 slices": 8.50,
@@ -1439,8 +1439,8 @@
                 _id: "aa6ce88a-df75-4054-ab52-3a0a73e3c912",
                 type: "pizza",
                 name: "Pizza Margarita",
-                ingredients: "Thin Italian style dough, cream cheese, extra mozzarella, tomato sauce",             
-                imageUrl: "pizzas/margarita.png",              
+                ingredients: "Thin Italian style dough, cream cheese, extra mozzarella, tomato sauce",
+                imageUrl: "pizzas/margarita.png",
                 price: {
                     "Medium - 6 slices": 11.90,
                     "Large - 8 slices": 14.00,
@@ -1454,8 +1454,8 @@
                 _id: "af316065-2287-4998-8ae0-d23c2f31212c",
                 type: "pizza",
                 name: "Pepperoni Classic",
-                ingredients: "Hand-tossed dough, tomato sauce, extra mozzarella, extra pepperoni",           
-                imageUrl: "pizzas/pepperoni.png",              
+                ingredients: "Hand-tossed dough, tomato sauce, extra mozzarella, extra pepperoni",
+                imageUrl: "pizzas/pepperoni.png",
                 price: {
                     "Medium - 6 slices": 15.90,
                     "Large - 8 slices": 17.90,
@@ -1468,8 +1468,8 @@
                 _id: "e6f8a9ab-c1fb-4eff-863e-209a8094da1b",
                 type: "pizza",
                 name: "American Hot",
-                ingredients: "Thin Italian style dough with mozzarella stuffed crust, tomato sauce, mozzarella, pepperoni, spicy jalapeno peppers, onions",             
-                imageUrl: "pizzas/american-hot.png",             
+                ingredients: "Thin Italian style dough with mozzarella stuffed crust, tomato sauce, mozzarella, pepperoni, spicy jalapeno peppers, onions",
+                imageUrl: "pizzas/american-hot.png",
                 price: {
                     "Medium - 6 slices": 14.90,
                     "Large - 8 slices": 16.90,
@@ -1482,8 +1482,8 @@
                 _id: "613a4d4e-7bd3-40b7-b3e5-69554359f4a9",
                 type: "pizza",
                 name: "Garden Classic",
-                ingredients: "Hand-tossed dough, tomato sauce, mozzarella, olives, fresh green peppers, onions, mushrooms, fresh tomatoes",               
-                imageUrl: "pizzas/garden-classic.png",            
+                ingredients: "Hand-tossed dough, tomato sauce, mozzarella, olives, fresh green peppers, onions, mushrooms, fresh tomatoes",
+                imageUrl: "pizzas/garden-classic.png",
                 price: {
                     "Medium - 6 slices": 12.90,
                     "Large - 8 slices": 14.90,
@@ -1496,8 +1496,8 @@
                 _id: "3dd88e1d-2e7d-46d8-b6db-ed5d96bd50c7",
                 type: "pizza",
                 name: "Hawaiian Pizza",
-                ingredients: "Tomato sauce, mozzarella, smoked ham, pineapple",              
-                imageUrl: "pizzas/hawaiian.png",            
+                ingredients: "Tomato sauce, mozzarella, smoked ham, pineapple",
+                imageUrl: "pizzas/hawaiian.png",
                 price: {
                     "Medium - 6 slices": 12.90,
                     "Large - 8 slices": 14.90,
@@ -1510,8 +1510,8 @@
                 _id: "0a96be75-4f2a-4921-b0af-df8d48de1c2e",
                 type: "pizza",
                 name: "BBQ Chicken Pizza",
-                ingredients: "Tender chicken breast, mozzarella, barbecue sauce, bacon, red onions, tomato",              
-                imageUrl: "pizzas/bbq-chicken.png",              
+                ingredients: "Tender chicken breast, mozzarella, barbecue sauce, bacon, red onions, tomato",
+                imageUrl: "pizzas/bbq-chicken.png",
                 price: {
                     "Medium - 6 slices": 14.90,
                     "Large - 8 slices": 16.90,
@@ -1524,8 +1524,8 @@
                 _id: "e77d8c6b-8183-494c-bfac-121138e633c4",
                 type: "pizza",
                 name: "Carbonara",
-                ingredients: "Fresh cream, mozzarella, bacon, mushrooms",              
-                imageUrl: "pizzas/carbonara.png",               
+                ingredients: "Fresh cream, mozzarella, bacon, mushrooms",
+                imageUrl: "pizzas/carbonara.png",
                 price: {
                     "Medium - 6 slices": 13.90,
                     "Large - 8 slices": 15.90,
@@ -1538,8 +1538,8 @@
                 _id: "0dfc07fd-98f0-4334-8530-f2be6fa4c74d",
                 type: "pizza",
                 name: "Italian Classic",
-                ingredients: "Tomato sauce, mozzarella, pesto sauce, Grano Padano, fresh tomatoes, basil",              
-                imageUrl: "pizzas/italian-classic.png",               
+                ingredients: "Tomato sauce, mozzarella, pesto sauce, Grano Padano, fresh tomatoes, basil",
+                imageUrl: "pizzas/italian-classic.png",
                 price: {
                     "Medium - 6 slices": 13.90,
                     "Large - 8 slices": 15.90,
@@ -1552,8 +1552,8 @@
                 _id: "77d94890-3c96-4ab9-a853-a57161a194c0",
                 type: "pizza",
                 name: "Extravaganza",
-                ingredients: "Mozzarella, tomato sauce, smoked ham, pepperoni, onion, fresh green papers, fresh mushrooms, black olives",               
-                imageUrl: "pizzas/extravaganza.png",              
+                ingredients: "Mozzarella, tomato sauce, smoked ham, pepperoni, onion, fresh green papers, fresh mushrooms, black olives",
+                imageUrl: "pizzas/extravaganza.png",
                 price: {
                     "Medium - 6 slices": 15.90,
                     "Large - 8 slices": 17.90,
@@ -1566,8 +1566,8 @@
                 _id: "ebb8253c-db91-480d-a461-60541c781165",
                 type: "starter",
                 name: "Cheesy Bread",
-                ingredients: "Freshly baked, topped with mozzarella and the special Domino's seasoning, served with tomato dip",               
-                imageUrl: "starters/cheesy-bread.png",             
+                ingredients: "Freshly baked, topped with mozzarella and the special Domino's seasoning, served with tomato dip",
+                imageUrl: "starters/cheesy-bread.png",
                 price: { default: 4.50 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811513559
@@ -1576,8 +1576,8 @@
                 _id: "8bfd089a-cf3a-452d-b373-1724b9a7424e",
                 type: "starter",
                 name: "Mozzarella Sticks",
-                ingredients: "five crispy mozzarella sticks with BBQ dip",            
-                imageUrl: "starters/mozzarella-sticks.png",             
+                ingredients: "five crispy mozzarella sticks with BBQ dip",
+                imageUrl: "starters/mozzarella-sticks.png",
                 price: { default: 7.50 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811486031
@@ -1586,8 +1586,8 @@
                 _id: "bddedc81-8ea0-42a2-9a56-efe28afd84f5",
                 type: "dessert",
                 name: "Chocolate Souffle",
-                ingredients: "Chocolate lava cake filled with melted warm chocolate",            
-                imageUrl: "desserts/chocolate-souffle.png",               
+                ingredients: "Chocolate lava cake filled with melted warm chocolate",
+                imageUrl: "desserts/chocolate-souffle.png",
                 price: { default: 5.90 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811452672
@@ -1596,8 +1596,8 @@
                 _id: "331d4499-ce48-4e12-9550-6d4d6ade2424",
                 type: "dessert",
                 name: "Brownie Bites",
-                ingredients: "Chocolate brownie with white chocolate chips",            
-                imageUrl: "desserts/brownie-bites.png",             
+                ingredients: "Chocolate brownie with white chocolate chips",
+                imageUrl: "desserts/brownie-bites.png",
                 price: { default: 3.90 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811424255
@@ -1606,8 +1606,8 @@
                 _id: "3985f63e-6c7f-436e-b8bd-20316bcc9087",
                 type: "dessert",
                 name: "Choco Pie with Nutella",
-                ingredients: "Freshly oven baked puff pastry filled with Nutella spread and sprinkled with icing sugar",             
-                imageUrl: "desserts/choco-pie.png",             
+                ingredients: "Freshly oven baked puff pastry filled with Nutella spread and sprinkled with icing sugar",
+                imageUrl: "desserts/choco-pie.png",
                 price: { default: 6.90 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811392584
@@ -1616,8 +1616,8 @@
                 _id: "c948b627-d101-4a4b-ad3c-cea9815c7a0c",
                 type: "drink",
                 name: "Coca-cola",
-                ingredients: "",            
-                imageUrl: "drinks/coca-cola.png",            
+                ingredients: "",
+                imageUrl: "drinks/coca-cola.png",
                 price: { default: 2.60 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811363911
@@ -1626,8 +1626,8 @@
                 _id: "298e0f67-9bdf-4b51-80db-2edf50c08c83",
                 type: "drink",
                 name: "Fuze Tea",
-                ingredients: "",             
-                imageUrl: "drinks/fuze-tea.png",              
+                ingredients: "",
+                imageUrl: "drinks/fuze-tea.png",
                 price: { default: 2.50 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811331711
@@ -1636,8 +1636,8 @@
                 _id: "93be3bbd-43c5-46a8-b56f-809fa29f09bf",
                 type: "drink",
                 name: "Bottled Water",
-                ingredients: "",                
-                imageUrl: "drinks/bottled-water.jpg",               
+                ingredients: "",
+                imageUrl: "drinks/bottled-water.jpg",
                 price: { default: 2.50 },
                 _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 _createdOn: 1701811265536
@@ -2019,8 +2019,14 @@
     //const port = 3030;
     const port = 4000;
     server.listen(port);
-    console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
-    console.log(`Admin panel located at http://localhost:${port}/admin`);
+    // console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
+    // console.log(`Admin panel located at http://localhost:${port}/admin`);
+
+    const baseUrl = `https://pizza-pal-act4.onrender.com`;
+
+    console.log(`Server started on port ${port}. You can make requests to ${baseUrl}/`);
+    console.log(`Admin panel located at ${baseUrl}/admin`);
+
 
     var softuniPracticeServer = {
 
