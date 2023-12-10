@@ -1,8 +1,8 @@
 import * as libRequest from '../lib/request';
 
-//const base_Url = `http://localhost:4000/data/products`;
+import { BaseUrl } from '../constants/Paths';
 
-const base_Url = `https://pizza-pal-act4.onrender.com/data/products`;
+const base_Url = `${BaseUrl}/data/products`;
 
 export const getLatestThree = async () => {
     const result = await libRequest.get(`${base_Url}?sortBy=_createdOn desc&offset=0&pageSize=3`);

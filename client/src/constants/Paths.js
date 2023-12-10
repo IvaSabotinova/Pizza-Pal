@@ -1,3 +1,8 @@
+
+export const BaseUrl = 'https://pizza-pal-act4.onrender.com';
+
+//export const BaseUrl = 'http://localhost:4000';
+
 const Paths = {
     Home: '/',
     Menu: '/menu',

@@ -13,7 +13,7 @@ export default function MyCustomPizzas() {
     const [pizzas, setPizzas] = useState([]);
 
     useEffect(() => {
-        customPizzaService.getAllByOwnerId(userId)
+        customPizzaService.getAllByOwnerIdDesc(userId)
             .then(setPizzas)
             .catch((err) => console.log(err))
     }, [userId]);

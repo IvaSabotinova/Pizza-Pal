@@ -1,8 +1,8 @@
-import * as libRequest from '../lib/request'
+import * as libRequest from '../lib/request';
 
-//const base_Url = `http://localhost:4000/data/custom-pizzas`;
+import {BaseUrl} from '../constants/Paths';
 
-const base_Url = `https://pizza-pal-act4.onrender.com/data/custom-pizzas`;
+const base_Url = `${BaseUrl}/data/custom-pizzas`;
 
 export const createCustomPizza = async (pizzaData) => {
     const result = await libRequest.post(base_Url, pizzaData);
@@ -15,12 +15,12 @@ export const getAllDesc = async () => {
     return data;
 }
 
-export const getAllByOwnerId = async (ownerId) =>{
+export const getAllByOwnerIdDesc = async (ownerId) =>{
     const query = new URLSearchParams({
         where: `_ownerId="${ownerId}"`,       
     });
     
-    const result = await libRequest.get(`${base_Url}?${query}`);
+    const result = await libRequest.get(`${base_Url}?${query}&sortBy=_createdOn desc`);
     console.log(result);
     return result;
 }
