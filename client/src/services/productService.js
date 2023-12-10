@@ -1,6 +1,7 @@
 import * as libRequest from '../lib/request';
 
 //const base_Url = `http://localhost:4000/data/products`;
+
 const base_Url = `https://pizza-pal-act4.onrender.com/data/products`;
 
 export const getLatestThree = async () => {
