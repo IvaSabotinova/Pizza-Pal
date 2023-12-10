@@ -49,6 +49,6 @@ Server - [SoftUni Practice Server](https://github.com/softuni-practice-server/so
 | George  | george@abv.bg  |123456 | 
 
 
-### Front-end deployed in Firebase:
+### Front-end deployed on [Firebase](https://firebase.google.com/), back-end deployed on [render](https://render.com/)
 
 https://pizza-pal-reactjs.web.app
