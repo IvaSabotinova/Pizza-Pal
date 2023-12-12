@@ -1,6 +1,6 @@
 import * as libRequest from '../lib/request';
 
-import { BaseUrl } from '../constants/Paths'
+import { BaseUrl } from '../constants/Paths';
 
 const base_Url = `${BaseUrl}/data/comments`;
 

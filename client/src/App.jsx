@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Paths from "./constants/Paths";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -22,11 +23,21 @@ import ProductDetails from "./components/products-details/ProductDetails";
 import ProductCreate from "./components/product-create/ProductCreate";
 import ProductEdit from "./components/product-edit/ProductEdit";
 import ScrollUp from './components/scroll-up/ScrollUp';
-
+import Loader from "./components/loader/Loader";
 
 
 function App() {
-    return (
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+            navigate(Paths.Home);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [])
+    return (loading ? <Loader /> :
         <AuthProvider>
             <Header />
             <Routes>
@@ -45,12 +56,12 @@ function App() {
                     <Route path={Paths.CustomPizzaEdit} element={<CustomPizzaEdit />} />
                     <Route path={Paths.MyCustomPizzas} element={<MyCustomPizzas />} />
                     <Route path={Paths.ProductCreate} element={<ProductCreate />} />
-                    <Route path={Paths.ProductEdit} element={<ProductEdit/>}/>
+                    <Route path={Paths.ProductEdit} element={<ProductEdit />} />
                 </Route>
                 <Route path={Paths.NotFound} element={<NotFound />} />
             </Routes>
             <Footer />
-            <ScrollUp/>
+            <ScrollUp />
         </AuthProvider>
     )
 }

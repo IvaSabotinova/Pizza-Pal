@@ -1,7 +1,15 @@
 
-export const BaseUrl = 'https://pizza-pal-act4.onrender.com';
+const getBaseUrl = () => {
+    if (import.meta.env.Mode === 'development') {
+        return 'http://localhost:4000';
+    } else {
+        return 'https://pizza-pal-act4.onrender.com';
+    }
+}
 
-//export const BaseUrl = 'http://localhost:4000';
+export const BaseUrl = getBaseUrl();
+
+//export const BaseUrl = import.meta.env.VITE_API_URL;
 
 const Paths = {
     Home: '/',
