@@ -110,13 +110,19 @@ https://pizza-pal-reactjs.web.app
 
 **Admin Area: creating new product (pizza, starter, dessert or drink) - form changes dynamically based on selected product type**
 
+**Creating pizza**
+
 <p align="left">
     <img src="https://github.com/IvaSabotinova/Pizza-Pal/assets/96121572/17ccbcb0-0148-47aa-bb3c-fec9bc9c2308" alt="CreatePizzaAdmin" width="900px">
 </p>
 
+**Creating starter**
+
 <p align="left">
     <img src="https://github.com/IvaSabotinova/Pizza-Pal/assets/96121572/f787b56b-8c4f-4a97-9e6e-f79cb024da11" alt="CreateStarterAdmin" width="900px">
 </p>
+
+**Creating drink**
 
 <p align="left">
     <img src="https://github.com/IvaSabotinova/Pizza-Pal/assets/96121572/d74947d9-0adf-491d-bbf7-a63cd684cf8f" alt="CreateDrinkAdmin" width="900px">
