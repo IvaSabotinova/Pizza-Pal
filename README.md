@@ -91,7 +91,7 @@ https://pizza-pal-reactjs.web.app
 **Create custom pizza page**
 
 <p align="left">
-    <img src="https://github.com/IvaSabotinova/Pizza-Pal/assets/96121572/5076333b-af39-42e2-aeb0-d22cb0eab7b6" alt="CreateCustomPizza" width="600px">
+    <img src="https://github.com/IvaSabotinova/Pizza-Pal/assets/96121572/72aa1275-1fcc-4154-b7bd-720ca76e001d" alt="CreateCustomPizza" width="600px">
 </p>
 
 
