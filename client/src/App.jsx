@@ -37,7 +37,7 @@ function App() {
 
         return () => clearTimeout(timer);
     }, [])
-    return (loading ? <Loader /> :
+    return (loading ? <Loader fullPage /> :
         <AuthProvider>
             <Header />
             <Routes>

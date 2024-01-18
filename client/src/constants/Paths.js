@@ -1,7 +1,7 @@
 
 const getBaseUrl = () => {
     if (import.meta.env.Mode === 'development') {
-        return 'http://localhost:4000';
+        return 'http://localhost:3030';
     } else {
         return 'https://pizza-pal-act4.onrender.com';
     }

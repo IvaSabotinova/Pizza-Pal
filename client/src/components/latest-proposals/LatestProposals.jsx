@@ -3,14 +3,19 @@ import { useState, useEffect } from "react";
 import * as productService from '../../services/productService';
 
 import LatestProposalsItem from "./LatestProposalsItem";
+import Loader from "../loader/Loader";
 
 
 const LatestProposals = () => {
     const [products, setProducts] = useState([]);
+    const [loadingProducts, setLoadingProducts] = useState(true);
 
     useEffect(() => {
         productService.getLatestThree()
-            .then((res) => setProducts(res))
+            .then((res) => {
+                setProducts(res);
+                setLoadingProducts(false);
+            })
             .catch((err) => console.log(err))
     }, []);
 
@@ -20,11 +25,12 @@ const LatestProposals = () => {
                 <div className="heading_container heading_center">
                     <h2>Our Latest Proposals</h2>
                 </div>
+                {loadingProducts && <Loader />}
                 <div className="filters-content">
-                    <div className="row grid">
-                        {products.slice(0, 3).map(prod => (<LatestProposalsItem key={prod._id} {...prod} />))}
+                    {!loadingProducts && <div className="row grid">
+                        {products.map(prod => (<LatestProposalsItem key={prod._id} {...prod} />))}
 
-                    </div>
+                    </div>}
                 </div>
             </div>
         </section>

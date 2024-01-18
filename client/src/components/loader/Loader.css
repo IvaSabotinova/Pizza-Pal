@@ -2,11 +2,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 150px;
+    /* min-height: 100vh; */
 }
 
 .loader img {
     height: 80px;
     width: 80px;
 
+}
+
+.full-page-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.full-page-loader img {
+    height: 80px;
+    width: 80px;
 }
