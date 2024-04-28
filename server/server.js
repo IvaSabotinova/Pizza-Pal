@@ -1372,7 +1372,7 @@
                 name: "Marinari",
                 size: "Large - 8 slices",
                 ingredients: "dough, pepperoni, olives, tomatoes, cheese, cream",
-                imageUrl: "https://static.insales-cdn.com/images/products/1/2993/636431281/%D5%BA%D5%A5%D5%BA%D5%BA%D5%A5%D6%80%D5%B8%D5%B6%D5%AB_%D5%AF%D5%AE%D5%B8%D6%82.jpeg",
+                imageUrl: "https://www.jennycancook.com/wp-content/uploads/2013/02/PeppPizza_600.jpg",
                 description: "Add the pepperoni slices and on top of it put the other ingredients with quantities as per your preferences.",
                 dough: true,
                 pepperoni: true,
